@@ -19,4 +19,9 @@
     <servlet-name>opencms</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
 </web-app>
