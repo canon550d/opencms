@@ -19,21 +19,21 @@ public class Home extends Directory {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Set<Folder> childs;
-	private Set<Text> files;
+	private Set<Directory> childs;
+//	private Set<Text> files;
 
 	@OneToMany
 	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
-	public Set<Folder> getChilds() {
+	public Set<Directory> getChilds() {
 		return childs;
 	}
-	public void setChilds(Set<Folder> childs) {
+	public void setChilds(Set<Directory> childs) {
 		this.childs = childs;
 	}
-	public Set<Text> getFiles() {
-		return files;
-	}
-	public void setFiles(Set<Text> files) {
-		this.files = files;
-	}
+//	public Set<Text> getFiles() {
+//		return files;
+//	}
+//	public void setFiles(Set<Text> files) {
+//		this.files = files;
+//	}
 }

@@ -1,7 +1,5 @@
 package org.hb0712.yang.opencms.pojo;
 
-import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
@@ -23,23 +21,23 @@ public class Folder extends Directory{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Date create;
-	private List<Text> files;
+//	private Date create;
+//	private List<Text> files;
 	private Directory father;
 	private Set<Folder> childs;
 
-	public Date getCreate() {
-		return create;
-	}
-	public void setCreate(Date create) {
-		this.create = create;
-	}
-	public List<Text> getFiles() {
-		return files;
-	}
-	public void setFiles(List<Text> files) {
-		this.files = files;
-	}
+//	public Date getCreate() {
+//		return create;
+//	}
+//	public void setCreate(Date create) {
+//		this.create = create;
+//	}
+//	public List<Text> getFiles() {
+//		return files;
+//	}
+//	public void setFiles(List<Text> files) {
+//		this.files = files;
+//	}
 	@ManyToOne
 	@JoinColumn(name = "father_id")
 	public Directory getFather() {
