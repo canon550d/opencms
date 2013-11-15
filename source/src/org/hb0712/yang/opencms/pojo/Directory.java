@@ -1,6 +1,7 @@
 package org.hb0712.yang.opencms.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -10,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  * 目录
@@ -25,6 +30,7 @@ public class Directory implements Serializable{
 	private Integer id; // 自编号
 	private String name; // 名称、标题
 	private int removed;
+	private List<Directory> childs;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,4 +53,13 @@ public class Directory implements Serializable{
 		this.removed = removed;
 	}
 
+	@OneToMany
+	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
+	public List<Directory> getChilds() {
+		return childs;
+	}
+
+	public void setChilds(List<Directory> childs) {
+		this.childs = childs;
+	}
 }

@@ -1,15 +1,9 @@
 package org.hb0712.yang.opencms.pojo;
 
-import java.util.Set;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  * 文件夹，可以放置文件
@@ -24,7 +18,7 @@ public class Folder extends Directory{
 //	private Date create;
 //	private List<Text> files;
 	private Directory father;
-	private Set<Folder> childs;
+//	private Set<Folder> childs;
 
 //	public Date getCreate() {
 //		return create;
@@ -46,13 +40,6 @@ public class Folder extends Directory{
 	public void setFather(Directory father) {
 		this.father = father;
 	}
-	@OneToMany
-	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
-	public Set<Folder> getChilds() {
-		return childs;
-	}
-	public void setChilds(Set<Folder> childs) {
-		this.childs = childs;
-	}
+
 
 }
