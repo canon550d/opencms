@@ -17,7 +17,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	private DirectoryDao directoryDao;
 
 	public Directory read(int id){
-		return directoryDao.read(id);
+		return null;
 	}
 
 	public List<Directory> read(){
@@ -39,10 +39,6 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return this.test(p);
 	}
 
-	public List<Directory> getChilds(Directory p){
-		return p.getChilds();
-	}
-
 	private List<Directory> test(Directory p){
 		List<Directory> tt;
 
@@ -54,6 +50,16 @@ public class DirectoryServiceImpl implements DirectoryService {
 		}
 		tt.add(p);
 		return tt;
+	}
+
+	public List<Directory> getChilds() {
+		// TODO Auto-generated method stub
+		return directoryDao.getChilds();
+	}
+
+	public List<Directory> getChilds(int id) {
+		// TODO Auto-generated method stub
+		return directoryDao.getChilds(id);
 	}
 
 }

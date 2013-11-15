@@ -1,6 +1,7 @@
 package org.hb0712.yang.opencms.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
@@ -30,7 +31,8 @@ public class Directory implements Serializable{
 	private Integer id; // 自编号
 	private String name; // 名称、标题
 	private int removed;
-	private List<Directory> childs;
+	private List<Directory> childs = new ArrayList<Directory>();
+//	private List<Text> texts = new ArrayList<Text>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,4 +64,5 @@ public class Directory implements Serializable{
 	public void setChilds(List<Directory> childs) {
 		this.childs = childs;
 	}
+
 }

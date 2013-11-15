@@ -2,7 +2,9 @@ package org.hb0712.yang.opencms.controller;
 
 import java.util.List;
 
+import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Directory;
+import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class DirectoryController {
 	@Autowired
 	private DirectoryService directoryService;
+	@Autowired
+	private TextDao textDao;
 
 	@RequestMapping("/index")
 	public String read(){
@@ -24,18 +28,17 @@ public class DirectoryController {
 		
 		ModelAndView mv = new ModelAndView();
 		Directory d = null;
-		List<Directory> ld = null;	//显示列表
+		List<Text> files = null;	//显示列表
 		List<Directory> folders = null;	//当前目录所有文件夹
 		if(id == null){
-			folders = directoryService.read();
+			folders = directoryService.getChilds();
 		}else{
-			d = directoryService.read(id);
-			
-			folders = d.getChilds();
-			ld = directoryService.getFather(d);
+			folders = directoryService.getChilds(id);
+			files = textDao.getByDirectoryId(id);
 		}
+
 		mv.addObject("directory",d);
-		mv.addObject("father",ld);
+		mv.addObject("files",files);
 		mv.addObject("folders", folders);
 		return mv;
 	}

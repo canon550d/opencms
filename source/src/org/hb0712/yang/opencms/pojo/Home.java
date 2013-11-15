@@ -2,7 +2,6 @@ package org.hb0712.yang.opencms.pojo;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
 /*
  * ÆµµÀ
  */
@@ -18,8 +17,8 @@ public class Home extends Directory {
 
 //	@OneToMany
 //	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
-//	public Set<Directory> getChilds() {
-//		return childs;
+//	public List<Directory> getChilds() {
+//		return super.getChilds();
 //	}
 //	public void setChilds(Set<Directory> childs) {
 //		this.childs = childs;

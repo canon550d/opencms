@@ -41,5 +41,4 @@ public class Folder extends Directory{
 		this.father = father;
 	}
 
-
 }

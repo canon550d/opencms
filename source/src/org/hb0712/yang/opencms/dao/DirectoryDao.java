@@ -22,6 +22,8 @@ public interface DirectoryDao {
 	 */
 	public Directory read(int id);
 
+	public List<Directory> getChilds();
+	public List<Directory> getChilds(int id);
 	/**
 	 * Update
 	 */

@@ -13,5 +13,7 @@ public interface DirectoryService {
 	 * 计算一个目录的路径，并且以List返回
 	 */
 	public List<Directory> getFather(Directory p);
-	public List<Directory> getChilds(Directory p);
+
+	public List<Directory> getChilds();
+	public List<Directory> getChilds(int id);
 }
