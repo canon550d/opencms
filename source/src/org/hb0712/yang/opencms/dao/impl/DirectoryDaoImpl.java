@@ -38,7 +38,8 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 	/*
 	 * 获取目录
 	 */
-	public List read(Directory d) {
+	@SuppressWarnings("unchecked")
+	public List<Directory> read(Directory d) {
 		String hql = "from " + d.getClass().getSimpleName();
 		return this.getHibernateTemplate().find(hql);
 
@@ -62,14 +63,6 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 		});
 	}
 
-	public List getChilds(){
-		String hql = "from Home";
-		return this.getHibernateTemplate().find(hql);	//TODO 这个警告很烦啊
-	}
-	public List getChilds(int id){
-		String hql = "from Directory d where d.father.id = ?";
-		return this.getHibernateTemplate().find(hql, id);
-	}
 
 	public boolean update() {
 		// TODO 自动生成的方法存根

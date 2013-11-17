@@ -16,8 +16,9 @@ public class TextDaoImpl extends HibernateDaoSupport implements TextDao {
 		super.setSessionFactory(sessionFactory);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Text> getByDirectoryId(int id) {
-		// TODO Auto-generated method stub
+		// TODO 上面的那unchecked我挺烦
 		String hql = "from Text t where t.directory.id = ?";
 		return this.getHibernateTemplate().find(hql, id);
 	}

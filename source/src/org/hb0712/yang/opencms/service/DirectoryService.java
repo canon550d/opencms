@@ -15,6 +15,5 @@ public interface DirectoryService {
 	 */
 	public List<Directory> getAncestors(Directory p);
 
-	public List<Directory> getChilds();
-	public List<Directory> getChilds(int id);
+
 }

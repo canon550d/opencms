@@ -23,9 +23,10 @@
     <%-- /把文件夹先显示出来/ --%>
     <c:forEach items="${folders}" var="folder">
     <tr>
-      <td>&nbsp;</td><td colspan="6"><a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a></td>
+      <td>&nbsp;</td><td colspan="6"><img src="../1.png"/><a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a></td>
     </tr>
     </c:forEach>
+    <%-- /显示文件/ --%>
     <c:forEach items="${files}" var="file">
       <td>&nbsp;</td><td>1</td>
       <td><c:out value="${file.subject}"/></td>

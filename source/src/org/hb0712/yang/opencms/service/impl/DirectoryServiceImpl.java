@@ -58,14 +58,5 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return tt;
 	}
 
-	public List<Directory> getChilds() {
-		// TODO Auto-generated method stub
-		return directoryDao.getChilds();
-	}
-
-	public List<Directory> getChilds(int id) {
-		// TODO Auto-generated method stub
-		return directoryDao.getChilds(id);
-	}
 
 }
