@@ -12,10 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  * 目录
@@ -30,7 +29,8 @@ public class Directory implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer id; // 自编号
 	private String name; // 名称、标题
-	private int removed;
+	private int removed; // 是否删除了
+	private Directory parent;
 	private List<Directory> childs = new ArrayList<Directory>();
 //	private List<Text> texts = new ArrayList<Text>();
 
@@ -55,12 +55,21 @@ public class Directory implements Serializable{
 		this.removed = removed;
 	}
 
-	@OneToMany
-	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
+	
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
+	public Directory getParent() {
+		return parent;
+	}
+	public void setParent(Directory parent) {
+		this.parent = parent;
+	}
+
+	@OneToMany(mappedBy="parent")
+//	@Cascade(value = { CascadeType.DELETE, CascadeType.DELETE_ORPHAN })
 	public List<Directory> getChilds() {
 		return childs;
 	}
-
 	public void setChilds(List<Directory> childs) {
 		this.childs = childs;
 	}
