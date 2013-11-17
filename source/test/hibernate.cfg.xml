@@ -16,5 +16,6 @@
 		<mapping class="org.hb0712.yang.opencms.pojo.Directory"/>
 		<mapping class="org.hb0712.yang.opencms.pojo.Home"/>
 		<mapping class="org.hb0712.yang.opencms.pojo.Folder"/>
+		<mapping class="org.hb0712.yang.opencms.pojo.Text"/>
 	</session-factory>
 </hibernate-configuration>

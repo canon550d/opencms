@@ -18,7 +18,7 @@ public class DirectoryServiceTest {
 	@Test
 	public void test() {
 		Directory direct = directoryService.read(2);
-		List<Directory> list = directoryService.getFather(direct);
+		List<Directory> list = directoryService.getAncestors(direct);
 		for(Directory d:list){
 			System.out.print(d.getName() + ">");
 		}

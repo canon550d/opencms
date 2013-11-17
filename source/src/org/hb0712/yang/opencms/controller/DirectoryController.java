@@ -2,8 +2,8 @@ package org.hb0712.yang.opencms.controller;
 
 import java.util.List;
 
-import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Directory;
+import org.hb0712.yang.opencms.pojo.Home;
 import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,31 +15,60 @@ import org.springframework.web.servlet.ModelAndView;
 public class DirectoryController {
 	@Autowired
 	private DirectoryService directoryService;
-	@Autowired
-	private TextDao textDao;
 
 	@RequestMapping("/index")
 	public String read(){
 		return "read";
 	}
-	
+
+	/*
+	 * 显示所有频道
+	 */
+	@RequestMapping("/directory/channel")
+	public ModelAndView channel(){
+		ModelAndView mv = new ModelAndView();
+		List<Directory> folders = directoryService.read(new Home());
+		mv.addObject("folders", folders);
+		return mv;
+	}
+
+	/*
+	 * 查看频道的文件夹和文件
+	 */
 	@RequestMapping("/directory/list")
 	public ModelAndView list(Integer id){
 		
 		ModelAndView mv = new ModelAndView();
-		Directory d = null;
+		
+		List<Directory> ancestors = null;
 		List<Text> files = null;	//显示列表
 		List<Directory> folders = null;	//当前目录所有文件夹
 		if(id == null){
-			folders = directoryService.getChilds();
+			folders = directoryService.read(new Home());
 		}else{
-			folders = directoryService.getChilds(id);
-			files = textDao.getByDirectoryId(id);
+			Directory directory = directoryService.read(id);
+			folders = directory.getChilds();
+			ancestors = directoryService.getAncestors(directory);
+			files = directory.getTexts();
 		}
 
-		mv.addObject("directory",d);
-		mv.addObject("files",files);
+		mv.addObject("ancestors", ancestors);
 		mv.addObject("folders", folders);
+		mv.addObject("files", files);
+		return mv;
+	}
+
+	/*
+	 * 查看目录
+	 */
+	@RequestMapping("/directory/home")
+	public ModelAndView home(Integer id){
+		ModelAndView mv = new ModelAndView();
+		Directory directory = null;	//当前目录所有文件夹
+		if(id != null){
+			directory = directoryService.read(id);
+		}
+		mv.addObject("directory", directory);
 		return mv;
 	}
 }

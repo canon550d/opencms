@@ -18,6 +18,7 @@ public class DirectoryDaoTest2 {
 	public void test() {
 		Directory directory = directoryDao.read(1);
 		System.out.println(directory.getName());
+		System.out.println(directory.getChilds().size());
 	}
 
 }

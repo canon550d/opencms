@@ -1,11 +1,15 @@
 package org.hb0712.yang.opencms.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.hb0712.yang.opencms.dao.DirectoryDao;
 import org.hb0712.yang.opencms.pojo.Directory;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +27,10 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 		return directory;
 	}
 
-
+	/*
+	 * 
+	 * 
+	 */
 	public List<Directory> read() {
 		return null;
 	}
@@ -31,18 +38,30 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 	/*
 	 * 获取目录
 	 */
-	public List<Directory> read(Directory d) {
-		
-		this.getHibernateTemplate();
-		return null;
+	public List read(Directory d) {
+		String hql = "from " + d.getClass().getSimpleName();
+		return this.getHibernateTemplate().find(hql);
+
 	}
 
 	/*
 	 * 也许是文件夹，也许是根目录
 	 */
-	public Directory read(int id) {
-		return (Directory) this.getHibernateTemplate().get(Directory.class, id);
+	public Directory read(final int id) {
+//		return (Directory) this.getHibernateTemplate().get(Directory.class, id);
+		return (Directory) this.getHibernateTemplate().execute(new HibernateCallback() {
+			@Override
+			public Object doInHibernate(Session session) throws HibernateException,
+					SQLException {
+				// TODO Auto-generated method stub
+				Directory directory = (Directory) session.get(Directory.class, id);
+				directory.getChilds().iterator(); // TODO no session or session was closed 问题解决了，但不一定是最佳方案
+				directory.getTexts().iterator();
+				return directory;
+			}
+		});
 	}
+
 	public List getChilds(){
 		String hql = "from Home";
 		return this.getHibernateTemplate().find(hql);	//TODO 这个警告很烦啊

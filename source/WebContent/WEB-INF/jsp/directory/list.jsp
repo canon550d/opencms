@@ -9,20 +9,21 @@
 <title>列表</title>
 </head>
 <body>
-  <c:out value="${directory.name}"/>
-  <span>当前栏目</span>
-  <c:forEach items="${father}" var="ff" varStatus="status" > >>
-    <a href=""><c:out value="${ff.name}"/></a> 
-  </c:forEach>
 
-  <table border="1">
+  <span>当前栏目: <b>主频道</b></span>
+  <c:forEach items="${ancestors}" var="an" > >>
+    <a href="list.do?id=<c:out value="${an.id}"/>"><c:out value="${an.name}"/></a> 
+  </c:forEach>
+  
+
+  <table border="1" >
     <tr>
       <td>&nbsp;</td><td>序号</td><td>文章名称</td><td>编辑</td><td>来源</td><td>时间</td><td>权重</td>
     </tr>
     <%-- /把文件夹先显示出来/ --%>
     <c:forEach items="${folders}" var="folder">
     <tr>
-      <td>&nbsp;</td><td colspan="6"><a href=""><c:out value="${folder.name}"/></a></td>
+      <td>&nbsp;</td><td colspan="6"><a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a></td>
     </tr>
     </c:forEach>
     <c:forEach items="${files}" var="file">

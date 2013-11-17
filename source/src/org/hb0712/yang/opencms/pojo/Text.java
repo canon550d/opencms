@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 
 /**
  * нд╪Ч
@@ -26,7 +23,7 @@ public class Text implements Serializable{
 	private int removed;
 	private Date create;
 	private int weight = 60;
-	private Directory directory;
+//	private Directory directory;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,16 +65,15 @@ public class Text implements Serializable{
 		this.weight = weight;
 	}
 
-	@ManyToOne
-	@JoinTable(name="PHP",
-		joinColumns = { @JoinColumn(name = "pid") }, 
-		inverseJoinColumns = { @JoinColumn(name = "hid") })
-	public Directory getDirectory() {
-		return directory;
-	}
-	public void setDirectory(Directory directory) {
-		this.directory = directory;
-	}
+//	@ManyToOne
+//	@JoinTable(name="PHP",
+//		joinColumns = { @JoinColumn(name = "pid") }, 
+//		inverseJoinColumns = { @JoinColumn(name = "hid") })
+//	public Directory getDirectory() {
+//		return directory;
+//	}
+//	public void setDirectory(Directory directory) {
+//		this.directory = directory;
+//	}
 
-	
 }

@@ -16,8 +16,16 @@ public class DirectoryServiceImpl implements DirectoryService {
 	@Autowired
 	private DirectoryDao directoryDao;
 
+	/*
+	 * 获取id为主键的目录和子目录
+	 * 
+	 */
 	public Directory read(int id){
-		return null;
+		return directoryDao.read(id);
+	}
+
+	public List<Directory> read(Directory classname){
+		return directoryDao.read(classname);
 	}
 
 	public List<Directory> read(){
@@ -26,25 +34,23 @@ public class DirectoryServiceImpl implements DirectoryService {
 	/*
 	 * 频道：就是1级目录，所以取名为Home
 	 */
-	public Home readHome(int id){
-		Directory d = directoryDao.read(id);
-		Home home = null;
-		if(d instanceof Home){
-			home = (Home) d;
-		}
-		return home;
+	public Home readHome(){
+		return null;
 	}
 
-	public List<Directory> getFather(Directory p){
-		return this.test(p);
+	public List<Directory> getAncestors (Directory p){
+		return this.getParents(p);
 	}
 
-	private List<Directory> test(Directory p){
+	/*
+	 * 递归函数，以父接点到子节点的顺序排列
+	 */
+	private List<Directory> getParents(Directory p){
 		List<Directory> tt;
 
 		if(p instanceof Folder){
 			Folder p2 = (Folder)p;
-			tt = test(p2.getFather());
+			tt = getParents(p2.getParent());
 		}else{
 			tt = new ArrayList<Directory>();
 		}

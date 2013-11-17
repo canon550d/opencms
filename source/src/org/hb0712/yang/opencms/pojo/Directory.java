@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -32,7 +33,7 @@ public class Directory implements Serializable{
 	private int removed; //  «∑Ò…æ≥˝¡À
 	private Directory parent;
 	private List<Directory> childs = new ArrayList<Directory>();
-//	private List<Text> texts = new ArrayList<Text>();
+	private List<Text> texts = new ArrayList<Text>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,6 +73,17 @@ public class Directory implements Serializable{
 	}
 	public void setChilds(List<Directory> childs) {
 		this.childs = childs;
+	}
+
+	@OneToMany
+	@JoinTable(name="PHP",
+		joinColumns = { @JoinColumn(name = "pid") }, 
+		inverseJoinColumns = { @JoinColumn(name = "hid") })
+	public List<Text> getTexts() {
+		return texts;
+	}
+	public void setTexts(List<Text> texts) {
+		this.texts = texts;
 	}
 
 }
