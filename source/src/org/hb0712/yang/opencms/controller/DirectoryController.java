@@ -47,6 +47,8 @@ public class DirectoryController {
 			folders = directoryService.read(new Home());
 		}else{
 			Directory directory = directoryService.read(id);
+			mv.addObject("directory", directory);
+
 			folders = directory.getChilds();
 			ancestors = directoryService.getAncestors(directory);
 			files = directory.getTexts();
@@ -55,6 +57,19 @@ public class DirectoryController {
 		mv.addObject("ancestors", ancestors);
 		mv.addObject("folders", folders);
 		mv.addObject("files", files);
+		return mv;
+	}
+
+	@RequestMapping("/template/list")
+	public ModelAndView special(Integer id){
+		ModelAndView mv = new ModelAndView();
+		if(id != null){
+			Directory directory = directoryService.read(id);
+			mv.addObject("directory", directory);
+
+			List<Directory> ancestors = directoryService.getAncestors(directory);
+			mv.addObject("ancestors", ancestors);
+		}
 		return mv;
 	}
 

@@ -20,18 +20,12 @@
   <div style="background-color:#fafad2;margin-bottom:5px;">
     <div style="float:left;">
       <b>
-        <a href="/post/post_test.jsp?topicid=00753E6D" id="publishArticleForControl">文章发布</a>
-        <a href="javascript:createArticle();" class="publishBlankArticleForControl">发空文章</a> | 
-        <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D">草稿列表</a>
-        <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D&userid=ntescc2612">我的草稿</a> | 
-        <a href="/post/prepostarticlelist.jsp?channelid=0075&topicid=00753E6D">定时发布文章列表</a> | 
-        <a href="javascript:setDialog('/topic/addtopic.jsp?topicid=00753E6D');">新建栏目</a> 
-        <a href="javascript:goEditTopic();">修改栏目</a> 
-        <a href="javascript:deleteTopic()">删除栏目</a>
+        &nbsp;&nbsp;<font color=red>模板管理</font><b>&nbsp;&nbsp;</b>
+        <input type=button class="createModelForControl" value="创建专题" onclick="document.location.href='model.jsp?topicid=007529DN'">
       </b>
     </div>
     <div style="float:right;">
-      <b><a href="../template/list.do?id=<c:out value="${directory.id}"/>">模板管理</a>&nbsp;<a href="/user/list.jsp?topicid=00753E6D" id="viewParentUserRoleResoureForControl">用户权限</a></b>
+      <b><a href="../directory/list.do?id=<c:out value="${directory.id}"/>">编辑管理</a>&nbsp;<a href="/user/list.jsp?topicid=00753E6D" id="viewParentUserRoleResoureForControl">用户权限</a></b>
     </div>
     <div style="clear:both;"></div>
   </div>
@@ -77,7 +71,7 @@
       <td align="center" width="40">权重</td>
     </tr>
     <%-- /把文件夹先显示出来/ --%>
-    <c:forEach items="${folders}" var="folder">
+    <c:forEach items="${directory.childs}" var="folder">
     <tr>
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="radio" name="topicidx"/></td>
       <td colspan="6" align="left" bgcolor="#E8E8D0">
@@ -87,13 +81,14 @@
     </tr>
     </c:forEach>
     <%-- /显示文件/ --%>
-    <c:forEach items="${files}" var="file">
+    <c:forEach items="${directory.texts}" var="file">
     <tr>
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
       <td align="center" bgcolor="#E8E8D0">1</td>
       <td align="left"   bgcolor="#E8E8D0">
-        <a href="http://www.opencms.org/08/1008/13/4NO22F1J007529DN.html" target=_blank><img src="/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
-        <a href="edit.do?id=<c:out value="${file.id}"/>"><c:out value="${file.subject}"/></a>
+        <a href="http://help.163.com/special/007529DN/dxb_20100719.html" target=_blank><img src="/images/icon.gif" width=16 height=16 border=0></a>
+        
+        <a class="" href="model.do?id=<c:out value="${file.id}"/>" alt="根id+英文名"><c:out value="${file.subject}"/></a>
       </td>
       <td align="center" bgcolor="#E8E8D0"></td>
       <td align="center" bgcolor="#E8E8D0">原创</td>

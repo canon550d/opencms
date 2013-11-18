@@ -24,6 +24,7 @@ public class Text implements Serializable{
 	private Date create;
 	private int weight = 60;
 //	private Directory directory;
+//	private String modelid; 规则如下，栏目id + 英文名
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
