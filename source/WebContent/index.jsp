@@ -6,7 +6,7 @@
 </head>
 
 <frameset id="maintop" framespacing="0" border="0" frameborder="no" rows="37,*">
-    <frame scrolling="NO" noresize="" name="topFrame" src="top.jsp">
+    <frame scrolling="NO" name="topFrame" src="top.jsp">
     <frame id="mainFrame" name="mainFrame" src="frame.jsp">
 </frameset>
 <noframes><body>

@@ -10,29 +10,73 @@
 </head>
 <body>
 
+  <div style="background-color:#fafad2;"><!-- 99CC99 -->
   <span>当前栏目: <b>主频道</b></span>
   <c:forEach items="${ancestors}" var="an" > >>
     <a href="list.do?id=<c:out value="${an.id}"/>"><c:out value="${an.name}"/></a> 
   </c:forEach>
-  
+  </div>
+  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+    <tr bgcolor="#72A4C3"> 
+      <td height="30" align="right" bgcolor="#a9a9a9">
+        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+          <tr>
+            <td style="text-align: left">&nbsp;&nbsp; <img src="/images/iconw.gif" width="16" height="16" border="0">
+              <font color="#FFFFFF"> 页面</font> &nbsp;&nbsp;<img src="/images/mulu.gif" width="16" height="16" border="0">
+              <font color="#FFFFFF"> 栏目</font> &nbsp;&nbsp;<img src="/images/icond.gif" width="16" height="16" border="0">
+              <font color="#FFFFFF"> 模板</font>
+            </td>
+            <td align="right">
+              <input type="button" name="open" value="打 开" onclick="document.form2.action='multiwindow.jsp';document.form2.method='get';document.form2.submit();"> 
+              <input type="submit" name="copy" value="复 制"> 
+              <input type="submit" name="cut" value="剪 切"> 
+              <input type="submit" name="paste" value="粘 贴"> 
+              <input type="submit" name="fpaste" value="完全粘贴">
 
-  <table border="1" >
-    <tr>
-      <td>&nbsp;</td><td>序号</td><td>文章名称</td><td>编辑</td><td>来源</td><td>时间</td><td>权重</td>
+              <input type="button" class="fullDeleteArticleForControl" value="完全删除" onclick="confirmDelete();">
+              
+              <input type="submit" class="deleteArticleForControl" name="delete" value="删 除" onclick="return confirm('请确认是否删除?');">
+              <input type="button" class="hideArticleForControl" value="隐 藏" onclick="confirmHide();">
+              <input type="submit" name="pasteWithTopicId" value="粘贴(栏目)">
+              <input type="button" value="刷新" onclick="refreshCurrentPage();"/>&nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table width="100%" cellspacing="2" cellpadding="0" border=0>
+    <tr bgcolor="#99CC99">
+      <td align="center" bgcolor="#99CC99" width="30" height=30>&nbsp;</td>
+      <td align="center" width="30" height="30">序号</td>
+      <td align="center" width="400">文章名称</td>
+      <td align="center" width="80">编辑</td>
+      <td align="center" width="70">来源</td>
+      <td align="center" width="180">时间</td>
+      <td align="center" width="40">权重</td>
     </tr>
     <%-- /把文件夹先显示出来/ --%>
     <c:forEach items="${folders}" var="folder">
     <tr>
-      <td><input type="radio" name=""/></td><td colspan="6"><img src="../1.png"/><a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a></td>
+      <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="radio" name="topicidx"/></td>
+      <td colspan="6" align="left" bgcolor="#E8E8D0">
+        <img src="/images/mulu.gif" width="16" height="16" border="0">&nbsp;
+        <a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a>
+      </td>
     </tr>
     </c:forEach>
     <%-- /显示文件/ --%>
     <c:forEach items="${files}" var="file">
-      <td>&nbsp;</td><td>1</td>
-      <td><c:out value="${file.subject}"/></td>
-      <td></td><td>原创</td>
-      <td><fmt:formatDate value="${file.create}"  type="both" dateStyle="medium"/></td>
-      <td><c:out value="${file.weight}"/></td>
+    <tr>
+      <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
+      <td align="center" bgcolor="#E8E8D0">1</td>
+      <td align="left"   bgcolor="#E8E8D0"><c:out value="${file.subject}"/></td>
+      <td align="center" bgcolor="#E8E8D0"></td>
+      <td align="center" bgcolor="#E8E8D0">原创</td>
+      <td align="center" bgcolor="#E8E8D0"><fmt:formatDate value="${file.create}"  type="both" dateStyle="medium"/></td>
+      <td align="center" bgcolor="#E8E8D0"><c:out value="${file.weight}"/></td>
+    </tr>
     </c:forEach>
   </table>
 </body>
