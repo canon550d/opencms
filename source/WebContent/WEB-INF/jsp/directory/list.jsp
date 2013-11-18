@@ -41,9 +41,9 @@
       <td height="30" align="right" bgcolor="#a9a9a9">
         <table width="100%" border="0" cellspacing="5" cellpadding="0">
           <tr>
-            <td style="text-align: left">&nbsp;&nbsp; <img src="/images/iconw.gif" width="16" height="16" border="0">
-              <font color="#FFFFFF"> 页面</font> &nbsp;&nbsp;<img src="/images/mulu.gif" width="16" height="16" border="0">
-              <font color="#FFFFFF"> 栏目</font> &nbsp;&nbsp;<img src="/images/icond.gif" width="16" height="16" border="0">
+            <td style="text-align: left">&nbsp;&nbsp; <img src="/static/images/iconw.gif" width="16" height="16" border="0">
+              <font color="#FFFFFF"> 页面</font> &nbsp;&nbsp;<img src="/static/images/mulu.gif" width="16" height="16" border="0">
+              <font color="#FFFFFF"> 栏目</font> &nbsp;&nbsp;<img src="/static/images/icond.gif" width="16" height="16" border="0">
               <font color="#FFFFFF"> 模板</font>
             </td>
             <td align="right">
@@ -81,7 +81,7 @@
     <tr>
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="radio" name="topicidx"/></td>
       <td colspan="6" align="left" bgcolor="#E8E8D0">
-        <img src="/images/mulu.gif" width="16" height="16" border="0">&nbsp;
+        <img src="/static/images/mulu.gif" width="16" height="16" border="0">&nbsp;
         <a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a>
       </td>
     </tr>
@@ -92,7 +92,7 @@
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
       <td align="center" bgcolor="#E8E8D0">1</td>
       <td align="left"   bgcolor="#E8E8D0">
-        <a href="http://www.opencms.org/08/1008/13/4NO22F1J007529DN.html" target=_blank><img src="/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
+        <a href="http://www.opencms.org/08/1008/13/4NO22F1J007529DN.html" target=_blank><img src="/static/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
         <a href="edit.do?id=<c:out value="${file.id}"/>"><c:out value="${file.subject}"/></a>
       </td>
       <td align="center" bgcolor="#E8E8D0"></td>

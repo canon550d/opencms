@@ -1,35 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>头部</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js" ></script>
-<style>
-#wrapper 
-{ 
-position:absolute; 
-left:0; 
-top:0; 
-display:none; 
-opacity:0; 
-z-index:100;
-} 
-#clickbox{
-  overflow:hidden;
-  cursor:pointer;
-  width:8px;
-  height:10px;
-  background:url(/images/cmsfavor.png) -161px -37px;
-}
-#clickbox.right{
-  background-position:-169px -37px;
-}
-#resizeBox{
-  background-color:#99CC99;
-}
-</style>
+<link href="/static/css/basic.css" rel="stylesheet"/>
 </head>
 <body style="MARGIN: 0px" scroll=no>
   <div id="wrapper"></div>
