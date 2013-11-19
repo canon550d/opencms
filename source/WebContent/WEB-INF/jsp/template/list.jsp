@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>列表</title>
 </head>
-<body>
+<body marginwidth="0" marginheight="0" topmargin="2" leftmargin="0">
 
   <div style="background-color:#fafad2;margin-bottom:5px;"><!-- 99CC99 -->
     <span>当前栏目: <b>主频道</b></span>
@@ -97,5 +97,11 @@
     </tr>
     </c:forEach>
   </table>
+  
+    <div id="foot">
+    <p><strong>[产品]</strong> Yang[18612345678]</p>
+    <p align="right" class="f12 gray">Powered by OpenCMS</p>
+  </div>
+
 </body>
 </html>
