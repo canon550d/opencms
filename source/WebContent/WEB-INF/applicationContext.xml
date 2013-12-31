@@ -50,6 +50,7 @@
 				<value>org.hb0712.yang.opencms.pojo.Home</value>
 				<value>org.hb0712.yang.opencms.pojo.Folder</value>
 				<value>org.hb0712.yang.opencms.pojo.Text</value>
+				<value>org.hb0712.yang.opencms.pojo.User</value>
 			</list>
 		</property>
 	</bean>
