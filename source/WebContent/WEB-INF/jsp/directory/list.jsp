@@ -21,7 +21,7 @@
   <div style="background-color:#fafad2;margin-bottom:5px;">
     <div style="float:left;">
       <b>
-        <a href="/post/post_test.jsp?topicid=00753E6D" id="publishArticleForControl">文章发布</a>
+        <a href="/post/post_test.jsp?topicid=<c:out value=""/>" id="publishArticleForControl">文章发布</a>
         <a href="javascript:createArticle();" class="publishBlankArticleForControl">发空文章</a> | 
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D">草稿列表</a>
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D&userid=ntescc2612">我的草稿</a> | 
@@ -88,15 +88,16 @@
     </tr>
     </c:forEach>
     <%-- /显示文件/ --%>
-    <c:forEach items="${files}" var="file">
+    <c:forEach items="${files}" var="file" varStatus="fileStatus">
     <tr>
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
-      <td align="center" bgcolor="#E8E8D0">1</td>
+      <td align="center" bgcolor="#E8E8D0"><c:out value="${fileStatus.count}"/></td>
       <td align="left"   bgcolor="#E8E8D0">
-        <a href="http://www.opencms.org/08/1008/13/4NO22F1J007529DN.html" target=_blank><img src="/static/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
+        <a href="http://www.opencms.org/<fmt:formatDate value="${file.create}" type="both" pattern="yy/MMdd/HH"/>/<c:out value="${file.docid}"/>.html" target=_blank><img src="/static/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
         <a href="edit.do?id=<c:out value="${file.id}"/>"><c:out value="${file.subject}"/></a>
+        
       </td>
-      <td align="center" bgcolor="#E8E8D0"></td>
+      <td align="center" bgcolor="#E8E8D0"><c:out value="${file.user.name}"/></td>
       <td align="center" bgcolor="#E8E8D0">原创</td>
       <td align="center" bgcolor="#E8E8D0"><fmt:formatDate value="${file.create}"  type="both" dateStyle="medium"/></td>
       <td align="center" bgcolor="#E8E8D0"><c:out value="${file.weight}"/></td>

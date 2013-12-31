@@ -91,7 +91,7 @@
         
         <a class="" href="model.do?id=<c:out value="${file.id}"/>" alt="根id+英文名"><c:out value="${file.subject}"/></a>
       </td>
-      <td align="center" bgcolor="#E8E8D0"></td>
+      <td align="center" bgcolor="#E8E8D0"><c:out value="${file.user.name}"/></td>
       <td align="center" bgcolor="#E8E8D0">原创</td>
       <td align="center" bgcolor="#E8E8D0"><fmt:formatDate value="${file.create}"  type="both" dateStyle="medium"/></td>
       <td align="center" bgcolor="#E8E8D0"><c:out value="${file.weight}"/></td>
