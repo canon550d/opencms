@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  * 文件
@@ -18,13 +20,16 @@ public class Text implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id; // 自编号
+	
 	private String subject;
 	private String message;
 	private int removed;
 	private Date create;
 	private int weight = 60;
+	private User user;
 //	private Directory directory;
 //	private String modelid; 规则如下，栏目id + 英文名
+	private String docid;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,6 +71,23 @@ public class Text implements Serializable{
 		this.weight = weight;
 	}
 
+	@OneToOne
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getDocid() {
+		return docid;
+	}
+	public void setDocid(String docid) {
+		this.docid = docid;
+	}
+
+	
 //	@ManyToOne
 //	@JoinTable(name="PHP",
 //		joinColumns = { @JoinColumn(name = "pid") }, 
