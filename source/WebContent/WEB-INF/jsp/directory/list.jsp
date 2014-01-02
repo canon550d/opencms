@@ -93,7 +93,7 @@
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
       <td align="center" bgcolor="#E8E8D0"><c:out value="${fileStatus.count}"/></td>
       <td align="left"   bgcolor="#E8E8D0">
-        <a href="http://www.opencms.org/<fmt:formatDate value="${file.create}" type="both" pattern="yy/MMdd/HH"/>/<c:out value="${file.docid}"/>.html" target=_blank><img src="/static/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
+        <a href="/opencms/<fmt:formatDate value="${file.create}" type="both" pattern="yy/MMdd/HH"/>/<c:out value="${file.docid}"/>.html" target=_blank><img src="/static/images/iconw.gif" width="16" height="16" border="0" alt="普通文章"></a>
         <a href="edit.do?id=<c:out value="${file.id}"/>"><c:out value="${file.subject}"/></a>
         
       </td>

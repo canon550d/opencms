@@ -26,7 +26,7 @@
       <td style="width:40%;">
         <table class="innerLayout">
           <tr>
-            <td style="width: 90%;"><input type="text" id="title" name="title" class="text" value="测试日志模板" tabindex="1"/></td>
+            <td style="width: 90%;"><input type="text" id="title" name="title" class="text" value="<c:out value='${text.subject}'/>" tabindex="1"/></td>
             <td style="width: 8%;"><span class="textCount" id="titleTextCount">0</span></td>
           </tr>
         </table>

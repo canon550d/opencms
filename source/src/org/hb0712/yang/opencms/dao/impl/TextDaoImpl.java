@@ -23,4 +23,8 @@ public class TextDaoImpl extends HibernateDaoSupport implements TextDao {
 		return this.getHibernateTemplate().find(hql, id);
 	}
 
+	public Text getById(int id) {
+		return (Text) this.getHibernateTemplate().get(Text.class, id);
+	}
+
 }
