@@ -1,7 +1,6 @@
 package org.hb0712.yang.opencms.controller;
 
 import org.hb0712.yang.opencms.core.CMS;
-import org.hb0712.yang.opencms.core.IdFactory;
 import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
