@@ -20,10 +20,11 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 		super.setSessionFactory(sessionFactory);
 	}
 
-	public Directory create() {
+	public Directory create(Directory directory) {
 		
-		Directory directory = new Directory();
-		directory.setName("ÄãºÃ");
+//		Directory directory = new Directory();
+//		directory.setName("ÄãºÃ");
+		this.getHibernateTemplate().save(directory);
 		return directory;
 	}
 

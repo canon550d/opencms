@@ -58,5 +58,11 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return tt;
 	}
 
+	public boolean create(Folder folder) {
+		boolean result = true;
+		this.directoryDao.create(folder);
+		
+		return result;
+	}
 
 }

@@ -8,7 +8,7 @@ public interface DirectoryDao {
 	/**
 	 * Create
 	 */
-	public Directory create();
+	public Directory create(Directory directory);
 
 	/**
 	 * Read

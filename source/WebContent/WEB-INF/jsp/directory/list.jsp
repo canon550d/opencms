@@ -26,7 +26,7 @@
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D">草稿列表</a>
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D&userid=ntescc2612">我的草稿</a> | 
         <a href="/post/prepostarticlelist.jsp?channelid=0075&topicid=00753E6D">定时发布文章列表</a> | 
-        <a href="javascript:setDialog('/topic/addtopic.jsp?topicid=00753E6D');">新建栏目</a> 
+        <a href="create.do?id=<c:out value='${directory.id}'/>" target="_blank">新建栏目</a> 
         <a href="javascript:goEditTopic();">修改栏目</a> 
         <a href="javascript:deleteTopic()">删除栏目</a>
       </b>
