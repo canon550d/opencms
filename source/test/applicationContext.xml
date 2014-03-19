@@ -49,6 +49,8 @@
 				<value>org.hb0712.yang.opencms.pojo.Directory</value>
 				<value>org.hb0712.yang.opencms.pojo.Home</value>
 				<value>org.hb0712.yang.opencms.pojo.Folder</value>
+				<value>org.hb0712.yang.opencms.pojo.Text</value>
+				<value>org.hb0712.yang.opencms.pojo.User</value>
 			</list>
 		</property>
 	</bean>
@@ -59,10 +61,8 @@
 		</property>
 	</bean>
 
-	<context:component-scan base-package="org.hb0712.yang.opencms.service" />
+	<context:component-scan base-package="org.hb0712.yang.opencms.dao.impl"/>
+	<context:component-scan base-package="org.hb0712.yang.opencms.service.impl"/>
 
-	<bean id="directoryDao" class="org.hb0712.yang.opencms.dao.impl.DirectoryDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 
 </beans>
