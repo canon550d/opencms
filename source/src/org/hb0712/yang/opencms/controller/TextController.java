@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class TextController {
 	@Autowired
 	private TextService textService;
+	@Autowired
+	private Path path;
 
 	@RequestMapping("/directory/edit")
 	public ModelAndView view(Integer id){
@@ -23,7 +25,7 @@ public class TextController {
 		
 		
 		String realpath = ContextLoader.getCurrentWebApplicationContext().getServletContext().getRealPath("/");
-		realpath = new Path().getSavePath();
+		realpath = path.getSavePath();
 		CMS.save(realpath+textService.getUrl(text), text.getMessage());
 		return mv;
 	}
@@ -32,6 +34,10 @@ public class TextController {
 	public ModelAndView model(Integer id){
 		ModelAndView mv = new ModelAndView();
 		return mv;
+	}
+	
+	public ModelAndView create(){
+		return null;
 	}
 
 }
