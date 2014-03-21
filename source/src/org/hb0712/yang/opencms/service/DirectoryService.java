@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hb0712.yang.opencms.pojo.Directory;
 import org.hb0712.yang.opencms.pojo.Folder;
+import org.hb0712.yang.opencms.pojo.Text;
 
 
 public interface DirectoryService {
@@ -17,4 +18,6 @@ public interface DirectoryService {
 	public List<Directory> getAncestors(Directory p);
 
 	public boolean create(Folder folder);
+	
+	public boolean create(int id,Text text);
 }

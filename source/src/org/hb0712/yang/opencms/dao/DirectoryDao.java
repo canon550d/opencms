@@ -26,7 +26,7 @@ public interface DirectoryDao {
 	/**
 	 * Update
 	 */
-	public boolean update();
+	public boolean update(Directory directory);
 
 	/**
 	 * Delete

@@ -3,6 +3,7 @@ package org.hb0712.yang.opencms.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Text implements Serializable{
 	
 	private String subject;
 	private String message;
-	private int removed;
+	private int removed;	//Ä¬ÈÏÎª0£¬
 	private Date create;
 	private int weight = 60;
 	private User user;
@@ -39,6 +40,7 @@ public class Text implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Column(name = "[subject]")
 	public String getSubject() {
 		return subject;
 	}
@@ -57,6 +59,7 @@ public class Text implements Serializable{
 	public void setRemoved(int removed) {
 		this.removed = removed;
 	}
+	@Column(name = "[create]")
 	public Date getCreate() {
 		return create;
 	}

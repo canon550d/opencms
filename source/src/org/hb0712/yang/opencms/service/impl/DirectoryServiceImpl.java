@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hb0712.yang.opencms.dao.DirectoryDao;
+import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Directory;
 import org.hb0712.yang.opencms.pojo.Folder;
 import org.hb0712.yang.opencms.pojo.Home;
+import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,8 @@ import org.springframework.stereotype.Service;
 public class DirectoryServiceImpl implements DirectoryService {
 	@Autowired
 	private DirectoryDao directoryDao;
-
+	@Autowired
+	private TextDao textDao;
 	/*
 	 * 获取id为主键的目录和子目录
 	 * 
@@ -65,4 +68,12 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return result;
 	}
 
+	public boolean create(int id,Text text){
+		text.setId(null);
+		textDao.create(text);
+		Directory d = this.directoryDao.read(id);
+		d.getTexts().add(text);
+		directoryDao.update(d);
+		return false;
+	}
 }

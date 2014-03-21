@@ -1,9 +1,11 @@
 package org.hb0712.yang.opencms.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Text;
+import org.hb0712.yang.opencms.pojo.User;
 import org.hb0712.yang.opencms.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,17 @@ public class TextServiceImpl implements TextService{
 		sb.append(result).append("/").append(text.getDocid()).append(".html");
 		
 		return sb.toString();
+	}
+
+	public boolean create(Text text) {
+		text.setCreate(new Date());
+		text.setRemoved(0);//0是存在工单
+		
+		User u = new User();
+		u.setId(1);
+		text.setUser(u);
+		// TODO 拿Seccion并获取User对象set到text里
+		return this.textDao.create(text);
 	}
 
 }

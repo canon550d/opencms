@@ -22,7 +22,7 @@
     <div style="float:left;">
       <b>
         &nbsp;&nbsp;<font color=red>模板管理</font><b>&nbsp;&nbsp;</b>
-        <input type=button class="createModelForControl" value="创建专题" onclick="document.location.href='model.jsp?topicid=007529DN'">
+        <input type=button class="createModelForControl" value="创建专题" onclick="document.location.href='create.do?topicid=007529DN'">
       </b>
     </div>
     <div style="float:right;">

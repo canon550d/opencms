@@ -65,8 +65,8 @@ public class DirectoryDaoImpl extends HibernateDaoSupport implements DirectoryDa
 	}
 
 
-	public boolean update() {
-		// TODO 自动生成的方法存根
+	public boolean update(Directory directory) {
+		this.getHibernateTemplate().update(directory);
 		return false;
 	}
 
