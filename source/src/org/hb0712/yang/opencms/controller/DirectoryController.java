@@ -10,8 +10,8 @@ import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class DirectoryController {
@@ -91,15 +91,6 @@ public class DirectoryController {
 
 	@RequestMapping("/directory/create")
 	public ModelAndView create(Folder folder){
-		System.out.println(folder.getId());
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("folder", folder);
-
-		return mv;
-	}
-	
-	@RequestMapping(value = "/directory/create2" , method = RequestMethod.POST )
-	public String create2(Folder folder){
 		if(folder.getName() != null ){
 			Folder newfolder = new Folder();
 			Directory parent = this.directoryService.read(folder.getId());
@@ -108,8 +99,13 @@ public class DirectoryController {
 
 			this.directoryService.create(newfolder);
 			System.out.println(folder.getName());
-
+//			return new ModelAndView(new RedirectView("/directory/home.do"));
 		}
-		return "redirect:/directory/home.do";
+		System.out.println(folder.getId());
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("folder", folder);
+
+		return mv;
 	}
+
 }

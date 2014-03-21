@@ -8,7 +8,7 @@
 <title>添加</title>
 </head>
 <body>
-  <form action="create2.do" method="post">
+  <form action="create.do" method="post">
   	<input name="id" value="${folder.id}" />
     <label>栏目名称</label><input name="name" />
     <button type="submit">提交</button>
