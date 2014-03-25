@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:/applicationContext.xml"})
+@ContextConfiguration(locations={"file:WebContent/WEB-INF/applicationContext.xml"})
 public class DirectoryDaoTest2 {
 	
 	@Autowired
@@ -22,7 +22,7 @@ public class DirectoryDaoTest2 {
 		System.out.println(directory.getChilds().size());
 	}
 
-	@Test
+//	@Test
 	public void tos(){
 		Folder folder = new Folder();
 		Directory directory = directoryDao.read(1);
