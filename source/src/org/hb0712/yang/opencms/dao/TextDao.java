@@ -8,4 +8,5 @@ public interface TextDao {
 	public boolean create(Text text);
 	public List<Text> getByDirectoryId(int id);
 	public Text getById(int id);
+	public boolean update(Text text);
 }

@@ -31,5 +31,10 @@ public class TextDaoImpl extends HibernateDaoSupport implements TextDao {
 		this.getHibernateTemplate().save(text);
 		return true;
 	}
+	
+	public boolean update(Text text){
+		this.getHibernateTemplate().update(text);
+		return true;
+	}
 
 }
