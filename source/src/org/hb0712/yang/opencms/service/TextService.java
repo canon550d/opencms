@@ -6,4 +6,5 @@ public interface TextService {
 	public boolean create(Text text);
 	public Text get(int id);
 	public String getUrl(Text text);
+	public boolean update(Text text);
 }
