@@ -25,7 +25,7 @@ public class TextController {
 			if(text.getMessage()!=null && text.getSubject()!=null){
 				object.setSubject(text.getSubject());
 				object.setMessage(text.getMessage());
-				object.getPaper().setContent(text.getPaper().getContent());
+				object.getContent().setData(text.getContent().getData());
 				this.textService.update(object);
 //				return new ModelAndView(new RedirectView("/directory/home.do"));
 			}

@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 /**
  * 文件
  */
@@ -20,7 +23,7 @@ public class Text implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer id; // 自编号
+	private Integer id ; // 自编号
 	
 	private String subject;
 	private String message;
@@ -31,6 +34,7 @@ public class Text implements Serializable{
 //	private Directory directory;
 //	private String modelid; 规则如下，栏目id + 英文名
 	private String docid;
+	private Content content = new Content();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,6 +92,15 @@ public class Text implements Serializable{
 	}
 	public void setDocid(String docid) {
 		this.docid = docid;
+	}
+	@OneToOne
+	@JoinColumn(name="content_id")
+	@Cascade(value=CascadeType.ALL)
+	public Content getContent() {
+		return content;
+	}
+	public void setContent(Content content) {
+		this.content = content;
 	}
 
 	

@@ -52,7 +52,7 @@ public class TextServiceImpl implements TextService{
 	 */
 	public boolean update(Text text) {
 		String realpath = path.getSavePath();
-		CMS.save(realpath + this.getUrl(text), text.getPaper().getContent());
+		CMS.save(realpath + this.getUrl(text), text.getContent().getData());
 		this.textDao.update(text);
 		return false;
 	}
