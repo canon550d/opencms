@@ -49,6 +49,7 @@
 			<list>
 				<value>org.hb0712.yang.opencms.pojo.Directory</value>
 				<value>org.hb0712.yang.opencms.pojo.Home</value>
+				<value>org.hb0712.yang.opencms.pojo.Content</value>
 				<value>org.hb0712.yang.opencms.pojo.Folder</value>
 				<value>org.hb0712.yang.opencms.pojo.Text</value>
 				<value>org.hb0712.yang.opencms.pojo.User</value>
@@ -62,8 +63,7 @@
 		</property>
 	</bean>
 
-	<context:component-scan base-package="org.hb0712.yang.opencms.dao.impl"/>
-	<context:component-scan base-package="org.hb0712.yang.opencms.service.impl"/>
-	
+
+
 
 </beans>

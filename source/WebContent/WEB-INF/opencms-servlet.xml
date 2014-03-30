@@ -12,6 +12,8 @@
 				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 	<context:component-scan base-package="org.hb0712.yang.opencms.controller"/>
+	<context:component-scan base-package="org.hb0712.yang.opencms.dao.impl"/>
+	<context:component-scan base-package="org.hb0712.yang.opencms.service.impl"/>
 
 	<bean id="viewResolver"
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver"
