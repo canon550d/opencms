@@ -11,7 +11,6 @@ import org.hb0712.yang.opencms.pojo.User;
 import org.hb0712.yang.opencms.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.ContextLoader;
 
 @Service
 public class TextServiceImpl implements TextService{
