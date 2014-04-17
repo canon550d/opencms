@@ -45,9 +45,12 @@ public class TextController {
 	@RequestMapping("/article/create")
 	public ModelAndView create(Text text){
 		if(text.getMessage()!=null && text.getSubject()!=null){
-			directoryService.create(text.getId(), text);
+			int did = text.getId();
+			directoryService.create(did, text);
+			return new ModelAndView(new RedirectView("../directory/list.do?id="+did));
 		}
 		ModelAndView mv = new ModelAndView();
+		mv.addObject(text);
 		return mv;
 	}
 
