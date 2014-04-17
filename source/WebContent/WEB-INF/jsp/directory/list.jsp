@@ -21,7 +21,7 @@
   <div style="background-color:#fafad2;margin-bottom:5px;">
     <div style="float:left;">
       <b>
-        <a href="/post/post_test.jsp?topicid=<c:out value=""/>" id="publishArticleForControl">文章发布</a>
+        <a href="../article/create.do?id=<c:out value="${directory.id}"/>" id="publishArticleForControl">文章发布</a>
         <a href="javascript:createArticle();" class="publishBlankArticleForControl">发空文章</a> | 
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D">草稿列表</a>
         <a href="/post/draftarticlelist.jsp?channelid=0075&topicid=00753E6D&userid=ntescc2612">我的草稿</a> | 

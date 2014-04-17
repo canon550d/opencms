@@ -9,9 +9,9 @@
 </head>
 <body>
 <form action="create.do" method="post">
-<input type="text" name="id"/>
-	标题<input type="text" name="subject"/>
-	内容<input type="text" name="message"/>
+    <input type="hidden" name="id" value="${text.id}"/>
+	标题<input type="text" name="subject"/><br/>
+	内容<textarea name="message"></textarea>
 	<button type="submit">添加</button>
 </form>
 </body>
