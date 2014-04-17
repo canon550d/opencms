@@ -44,6 +44,7 @@ public class TextServiceImpl implements TextService{
 		u.setId(1);
 		text.setUser(u);
 		// TODO 拿Seccion并获取User对象set到text里
+		CMS.save(path.getSavePath() + this.getUrl(text), text.getContent().getData());
 		return this.textDao.create(text);
 	}
 
