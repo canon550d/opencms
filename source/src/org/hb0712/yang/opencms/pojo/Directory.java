@@ -77,9 +77,9 @@ public class Directory implements Serializable{
 	}
 
 	@OneToMany
-	@JoinTable(name="PHP",
-		joinColumns = { @JoinColumn(name = "pid") }, 
-		inverseJoinColumns = { @JoinColumn(name = "hid") })
+	@JoinTable(name="Directory_Text",
+		joinColumns = { @JoinColumn(name = "d_id") }, 
+		inverseJoinColumns = { @JoinColumn(name = "t_id") })
 	public List<Text> getTexts() {
 		return texts;
 	}
