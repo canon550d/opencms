@@ -68,12 +68,16 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return result;
 	}
 
+	/*
+	 * 新建一个text对象，变成了更新一个directory对象，这不是我的本意。
+	 * 弃用吧
+	 */
 	public boolean create(int id,Text text){
-		text.setId(null);
-		textDao.create(text);
-		Directory d = this.directoryDao.read(id);
-		d.getTexts().add(text);
-		directoryDao.update(d);
+//		text.setId(null);
+//		textDao.create(text);
+//		Directory d = this.directoryDao.read(id);
+//		d.getTexts().add(text);
+//		directoryDao.update(d);
 		return false;
 	}
 }

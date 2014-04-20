@@ -46,7 +46,7 @@ public class TextController {
 	public ModelAndView create(Text text){
 		if(text.getMessage()!=null && text.getSubject()!=null){
 			int did = text.getId();
-			directoryService.create(did, text);
+			textService.create(text);
 			return new ModelAndView(new RedirectView("../directory/list.do?id="+did));
 		}
 		ModelAndView mv = new ModelAndView();

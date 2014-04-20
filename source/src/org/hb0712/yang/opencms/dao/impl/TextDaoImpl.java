@@ -33,10 +33,10 @@ public class TextDaoImpl extends HibernateDaoSupport implements TextDao {
 		return (Text) this.getHibernateTemplate().get(Text.class, id);
 	}
 
-	public boolean create(final Text text) {
+	public boolean create(int did, final Text text) {
 		if(text.getId() !=null){
-			final int oid = text.getId();
 			text.setId(null);
+			final int oid = did;
 			this.getHibernateTemplate().execute(new HibernateCallback() {
 				
 				public Object doInHibernate(Session session) throws HibernateException,
