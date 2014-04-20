@@ -1,11 +1,17 @@
 package org.hb0712.yang.opencms.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.hb0712.yang.opencms.dao.TextDao;
+import org.hb0712.yang.opencms.pojo.Directory;
 import org.hb0712.yang.opencms.pojo.Text;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -27,8 +33,25 @@ public class TextDaoImpl extends HibernateDaoSupport implements TextDao {
 		return (Text) this.getHibernateTemplate().get(Text.class, id);
 	}
 
-	public boolean create(Text text) {
-		this.getHibernateTemplate().save(text);
+	public boolean create(final Text text) {
+		if(text.getId() !=null){
+			final int oid = text.getId();
+			text.setId(null);
+			this.getHibernateTemplate().execute(new HibernateCallback() {
+				
+				public Object doInHibernate(Session session) throws HibernateException,
+						SQLException {
+					Directory dir = (Directory)session.get(Directory.class, oid);
+					dir.getTexts().add(text);
+					Transaction t = session.beginTransaction();
+					session.save(text);
+					t.commit();
+					session.close();
+					return null;
+				}
+			});
+		}
+//		this.getHibernateTemplate().save(text);
 		return true;
 	}
 	
