@@ -12,10 +12,10 @@ body {background-color:#99CC99;background-repeat:repeat-x;margin:0px;height:37px
 </head>
 <body>
 
-  <div style="float:left;">XXXX内容发布系统</div>
+  <div style="float:left;">苦逼内容发布系统</div>
   <div style="float:left;"><input type="text" /> <button>快速编辑</button> <a href="#">传图</a></div>
   <div style="float:right;">欢迎你：
-    <a href="#">某某某</a>
+    <a href="#">${sessionScope.currUser.name}</a>
     <a href="#">后台首页</a>
     <a href="#">用户管理</a>
     <a href="#">后台管理</a>
