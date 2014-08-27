@@ -10,6 +10,7 @@
 <body>
 <form action="create.do" method="post">
     <input type="hidden" name="id" value="${text.id}"/>
+    <input type="hidden" name="docid" value="${text.docid}"/>
 	标题<input type="text" name="subject"/><br/>
 	内容<textarea name="message"></textarea>
 	<button type="submit">添加</button>

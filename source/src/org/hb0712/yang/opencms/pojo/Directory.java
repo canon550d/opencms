@@ -34,7 +34,7 @@ public class Directory implements Serializable{
 	private Directory parent;
 	private List<Directory> childs = new ArrayList<Directory>();
 	private List<Text> texts = new ArrayList<Text>();
-//	private String topicid; 使用4位数的代码作为栏目id,如1234rt,子栏目为8位数，123429DN,12343E6D
+	private String topicid; //使用4位数的代码作为栏目id,如1234rt,子栏目为8位数，123429DN,12343E6D
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,6 +85,12 @@ public class Directory implements Serializable{
 	}
 	public void setTexts(List<Text> texts) {
 		this.texts = texts;
+	}
+	public String getTopicid() {
+		return topicid;
+	}
+	public void setTopicid(String topicid) {
+		this.topicid = topicid;
 	}
 
 }

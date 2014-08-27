@@ -105,7 +105,7 @@
       <td style="width:30%;">
         <table class="innerLayout">
           <tr>
-            <td style="width: 14%;"><input class="text" type="text" id="topicKeyword" name="topicids1" value="007529DN" /></td>
+            <td style="width: 14%;"><input class="text" type="text" id="topicKeyword" name="topicids1" value="<c:out value='${text.docid}'/>" /></td>
             <td style="width: 1%;"></td>
             <td style="width: 46%; text-align: center;">
               <select id='topicidlist' name='topicidlist' class='topicids'  accesskey='a'>
@@ -222,9 +222,11 @@
             </td>
           </tr>
         </table>
+
         <div id="frameBorder_1" class="frameBorder">
-          <iframe id="mainPreview" src="" frameborder="0" tabindex="5"></iframe>
-          <textarea id="mainCode" name="mainCode"></textarea>
+          <!-- 正文 -->12
+          <textarea id=""  name="text.content.data"><c:out value='${text.content.data}'/></textarea>
+          <!-- <iframe id="mainPreview" src="" frameborder="0" tabindex="5"></iframe>  -->
           <input type="hidden" name="content" id="content" />
         </div>
         <textarea id="tempContent" style="display: none;"></textarea>

@@ -3,6 +3,7 @@ package org.hb0712.yang.opencms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hb0712.yang.opencms.core.IdFactory;
 import org.hb0712.yang.opencms.dao.DirectoryDao;
 import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Directory;
@@ -63,8 +64,9 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 	public boolean create(Folder folder) {
 		boolean result = true;
+		// 由系统生成一个topic id
+		folder.setTopicid(IdFactory.getTopicid());
 		this.directoryDao.create(folder);
-		
 		return result;
 	}
 

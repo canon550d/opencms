@@ -2,9 +2,9 @@ package org.hb0712.yang.opencms.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 import org.hb0712.yang.opencms.core.CMS;
+import org.hb0712.yang.opencms.core.IdFactory;
 import org.hb0712.yang.opencms.core.Path;
 import org.hb0712.yang.opencms.dao.TextDao;
 import org.hb0712.yang.opencms.pojo.Text;
@@ -45,7 +45,8 @@ public class TextServiceImpl implements TextService{
 		
 		text.setCreate(new Date());
 		text.setRemoved(0);//0是存在工单
-		text.setDocid(test(16));
+		//需要对doc id做处理
+		text.setDocid(IdFactory.getDocid(text.getDocid()));
 		User u = new User();
 		u.setId(1);
 		text.setUser(u);
@@ -64,13 +65,5 @@ public class TextServiceImpl implements TextService{
 		return false;
 	}
 
-	private String test(int length){
-		char[] numbersAndLetters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-		char[] randBuffer = new char[length];
-		Random randGen = new Random();
-		for(int i=0; i<randBuffer.length; i++){
-			randBuffer[i] = numbersAndLetters[randGen.nextInt(35)];
-		}
-		return new String(randBuffer);
-	}
+
 }

@@ -98,10 +98,10 @@ public class DirectoryController {
 			newfolder.setName(folder.getName());
 
 			this.directoryService.create(newfolder);
-			System.out.println(folder.getName());
+			
 //			return new ModelAndView(new RedirectView("/directory/home.do"));
 		}
-		System.out.println(folder.getId());
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("folder", folder);
 

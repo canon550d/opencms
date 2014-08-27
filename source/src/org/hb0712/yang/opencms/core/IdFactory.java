@@ -1,5 +1,6 @@
 package org.hb0712.yang.opencms.core;
 
+import java.util.Random;
 import java.util.Stack;
 
 public class IdFactory {
@@ -24,6 +25,26 @@ public class IdFactory {
 		return result.toString();
 	}
 
+	private static String create(int length){
+		char[] numbersAndLetters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+		char[] randBuffer = new char[length];
+		Random randGen = new Random();
+		for(int i=0; i<randBuffer.length; i++){
+			randBuffer[i] = numbersAndLetters[randGen.nextInt(35)];
+		}
+		return new String(randBuffer);
+	}
+
+	/*
+	 * 产生N位的随机数
+	 */
+	public static String getTopicid(){
+		return create(8);
+	}
+
+	public static String getDocid(String suffix){
+		return create(8) + suffix;
+	}
 	/*
 	 * 获得当前的时间，并把他换算成KEYS.length进制的字符串，哈哈
 	 */
