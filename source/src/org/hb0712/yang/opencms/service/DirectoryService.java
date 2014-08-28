@@ -12,8 +12,8 @@ public interface DirectoryService {
 	public Directory read(int id);
 	public List<Directory> read(Directory classname);
 
-	/*
-	 * 计算一个目录的路径，并且以List返回
+	/**
+	 * 根据子节点查找父节点，一直到查到根节点为止
 	 */
 	public List<Directory> getAncestors(Directory p);
 
