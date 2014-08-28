@@ -103,11 +103,11 @@ public class Text implements Serializable{
 		this.content = content;
 	}
 
-	
+	//单向关联就可以了
 //	@ManyToOne
-//	@JoinTable(name="PHP",
-//		joinColumns = { @JoinColumn(name = "pid") }, 
-//		inverseJoinColumns = { @JoinColumn(name = "hid") })
+//	@JoinTable(name="Directory_Text",
+//		joinColumns = { @JoinColumn(name = "t_id") }, 
+//		inverseJoinColumns = { @JoinColumn(name = "d_id") })
 //	public Directory getDirectory() {
 //		return directory;
 //	}

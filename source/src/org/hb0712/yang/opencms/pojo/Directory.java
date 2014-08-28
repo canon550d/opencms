@@ -76,6 +76,8 @@ public class Directory implements Serializable{
 		this.childs = childs;
 	}
 
+	//单向一对多不够用了
+//	@OneToMany(mappedBy="directory")
 	@OneToMany
 	@JoinTable(name="Directory_Text",
 		joinColumns = { @JoinColumn(name = "d_id") }, 
