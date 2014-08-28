@@ -1,5 +1,6 @@
 package org.hb0712.yang.opencms.controller;
 
+import org.hb0712.yang.opencms.pojo.Directory;
 import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.hb0712.yang.opencms.service.TextService;
@@ -17,7 +18,7 @@ public class TextController {
 	private TextService textService;
 
 	@RequestMapping("/article/edit")
-	public ModelAndView view(Text text){
+	public ModelAndView view(Text text, int directory_id){
 		int id = text.getId();
 		ModelAndView mv = new ModelAndView();
 		if(id > 0){
@@ -26,11 +27,15 @@ public class TextController {
 			if(text.getMessage()!=null && text.getSubject()!=null){
 				object.setSubject(text.getSubject());
 				object.setMessage(text.getMessage());
-				object.getContent().setData(text.getContent().getData());
+//				object.getContent().setData(text.getContent().getData());
 				this.textService.update(object);
 //				return new ModelAndView(new RedirectView("/directory/home.do"));
 			}
 			mv.addObject(object);
+			
+			Directory directory = directoryService.read(directory_id);
+			mv.addObject("directory", directory);
+			mv.addObject("ancestors", directoryService.getAncestors(directory));
 		}
 		
 		return mv;
