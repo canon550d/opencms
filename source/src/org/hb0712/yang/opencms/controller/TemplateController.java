@@ -10,4 +10,14 @@ public class TemplateController {
 	public ModelAndView create(){
 		return null;
 	}
+
+	@RequestMapping("/template/mlist")
+	public ModelAndView mlist(){
+		return null;
+	}
+
+	@RequestMapping("/template/model")
+	public ModelAndView model(String topicid, String modelid){
+		return null;
+	}
 }

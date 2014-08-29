@@ -20,14 +20,14 @@
     </tr>
   </table>
 
-<form method="post">
+<form action="edit.do" method="post">
   <table class="formLayout" cellpadding="6">
     <tr>
       <th class="required">标题</th>
       <td style="width:40%;">
         <table class="innerLayout">
           <tr>
-            <td style="width: 90%;"><input type="text" id="title" name="title" class="text" value="<c:out value='${text.subject}'/>" tabindex="1"/></td>
+            <td style="width: 90%;"><input type="text" id="title" name="subject" class="text" value="<c:out value='${text.subject}'/>" tabindex="1"/></td>
             <td style="width: 8%;"><span class="textCount" id="titleTextCount">0</span></td>
           </tr>
         </table>
@@ -52,6 +52,7 @@
 
         <div id="frameBorder_1" class="frameBorder">
           <!-- 正文 -->
+          <textarea id=""  name="content.data"><c:out value='${text.content.data}'/></textarea>
           <textarea id=""  name="message"><c:out value='${text.message}'/></textarea>
           <!-- <iframe id="mainPreview" src="" frameborder="0" tabindex="5"></iframe>  -->
           <input type="hidden" name="content2" id="content" />

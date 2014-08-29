@@ -27,7 +27,7 @@ public class TextController {
 			if(text.getMessage()!=null && text.getSubject()!=null){
 				object.setSubject(text.getSubject());
 				object.setMessage(text.getMessage());
-//				object.getContent().setData(text.getContent().getData());
+				object.getContent().setData(text.getContent().getData());
 				this.textService.update(object);
 //				return new ModelAndView(new RedirectView("/directory/home.do"));
 			}
@@ -38,12 +38,6 @@ public class TextController {
 			mv.addObject("ancestors", directoryService.getAncestors(directory));
 		}
 		
-		return mv;
-	}
-
-	@RequestMapping("/template/model")
-	public ModelAndView model(Integer id){
-		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 

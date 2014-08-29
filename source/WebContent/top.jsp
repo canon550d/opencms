@@ -8,19 +8,33 @@
 <style type="text/css">
 body {font-size: 12px;line-height: 150%; }
 body {background-color:#99CC99;background-repeat:repeat-x;margin:0px;height:37px;}
+.button1{
+font-weight: bold;
+height: 23px;
+width: 67px;
+background-position: 0 -74px;
+padding-left: 18px;
+padding-top: 5px;
+color: #fff;
+margin: 0 5px;
+display: inline-block;
+text-decoration: none;
+background: green;
+}
+.white{background: white;color:black;width:40px;}
 </style>
 </head>
 <body>
 
   <div style="float:left;">苦逼内容发布系统</div>
   <div style="float:left;"><input type="text" /> <button>快速编辑</button> <a href="#">传图</a></div>
-  <div style="float:right;">欢迎你：
+  <div style="float:right;padding-top:4px;">欢迎你：
     <a href="#">${sessionScope.currUser.name}</a>
-    <a href="#">后台首页</a>
-    <a href="#">用户管理</a>
-    <a href="#">后台管理</a>
-    <a href="#">更换频道</a>
-    <a href="#">退出</a>
+    <a class="button1" href="#">后台首页</a>
+    <a class="button1" class="button1" href="#">用户管理</a>
+    <a class="button1" target="main" href="admin_index.jsp">后台管理</a>
+    <a class="button1" href="#">更换频道</a>
+    <a class="button1 white" href="#">退出</a>
   </div>
   <div style="clear:both;"></div>
 </body>
