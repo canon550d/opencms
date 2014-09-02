@@ -15,6 +15,8 @@ public class Path {
 	
 	private Properties opencms2;
 	
+	private Properties velocityProperties;
+	
 	private Map opencms;
 
 	public Map getOpencms() {
@@ -31,6 +33,14 @@ public class Path {
 
 	public void setOpencms2(Properties opencms2) {
 		this.opencms2 = opencms2;
+	}
+
+	public Properties getVelocityProperties() {
+		return velocityProperties;
+	}
+
+	public void setVelocityProperties(Properties velocityProperties) {
+		this.velocityProperties = velocityProperties;
 	}
 
 	public Path() {
@@ -61,4 +71,7 @@ public class Path {
 		return resource.getProperty("savePath");
 	}
 
+	public String getVmPath(){
+		return velocityProperties.getProperty("file.resource.loader.path");
+	}
 }

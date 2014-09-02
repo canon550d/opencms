@@ -22,6 +22,7 @@
 	<bean id="path" class="org.hb0712.yang.opencms.core.Path">
 		<property name="opencms" ref="opencms" />
 		<property name="opencms2" ref="opencms2" />
+		<property name="velocityProperties" ref="velocityProperties" />
 	</bean>
 
 	<util:properties id="opencms2" location="classpath:opencms.properties"/>

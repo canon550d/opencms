@@ -33,7 +33,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
 </style>
 </head>
 <body>
-
+<form action="update.do" method="post">
   <table class="tblList">
     <tr>
       <td>英文名：<input type="text" value="<c:out value='${template.name_english}'/> "/></td>
@@ -81,7 +81,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
   <div class="tipList">
     <div class="master">
         <label>
-            <textarea id="body" name="body" style="font-family: fixedsys; font-size: 10.5pt; width: 94%; height: 500px;"><c:out value="${template.content}"/></textarea>
+            <textarea id="body" name="content" style="font-family: fixedsys; font-size: 10.5pt; width: 94%; height: 500px;"><c:out value="${template.content}"/></textarea>
             <textarea id="body_swap" name="body_swap" style="display: none">test</textarea>
         </label>
         <p style="margin:5px 0; color:#f00; text-align:right;">[提交专题前，请确认代码来自专题模板库，避免页面出错]</p>
@@ -95,6 +95,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
         <input class="btn" value="操作日志" onclick="setDialog('viewlog.jsp?modelid=0075dxb_20100719')" type="button">
       </li>
       <li style="text-align:right;">
+        <input name="id" value="<c:out value='${template.id}'/>" type="hidden">
         <input name="topicid" value="007529DN" type="hidden">
         <input name="new" value="1" type="hidden">
         <input name="preview" value="true" style="display:none" type="checkbox">
@@ -104,5 +105,6 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
       </li>
     </ul>
   </div>
+</form>
 </body>
 </html>

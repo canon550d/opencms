@@ -23,7 +23,7 @@
 			</td>
 			<td align="left">&nbsp;&nbsp;
 				<a href="/0075/special/sp/cp_wanfa.html" target=_blank><img src="../../../static/images/icon.gif" width=16 height=16 border=0></a>&nbsp;
-				<a class="editModelForControl" href="model.do?topicid=0075&modelid=<c:out value='${lp.modelid}'/>" alt="0075cp_wanfa"><font color=blue><c:out value="${lp.name_chinese}" /></a>
+				<a class="editModelForControl" href="model.do?topicid=0075&modelid=<c:out value='${lp.modelid}'/>" alt="<c:out value='${lp.modelid}'/>"><font color=blue><c:out value="${lp.name_chinese}" /></a>
 			</td>
 			<td>/0075/c/0075cp_wanfa.vm --> <a href="javascript:copyTag('/special/sp/cp_wanfa.html')">复制标签</a></td>
 		</tr>

@@ -28,4 +28,13 @@ public class TemplateDaoImpl extends HibernateDaoSupport implements TemplateDao 
 		Template temp = (Template)list.get(0);
 		return temp;
 	}
+	public Template read(int id){
+		return (Template) getHibernateTemplate().get(Template.class, id);
+//		return null;
+	}
+
+	public boolean update(Template template) {
+		this.getHibernateTemplate().update(template);
+		return false;
+	}
 }
