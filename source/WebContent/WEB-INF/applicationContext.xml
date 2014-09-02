@@ -2,10 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
 		xmlns:context="http://www.springframework.org/schema/context"
-		xsi:schemaLocation="http://www.springframework.org/schema/beans  
-				http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-				http://www.springframework.org/schema/context  
-				http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+		xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
@@ -53,6 +53,7 @@
 				<value>org.hb0712.yang.opencms.pojo.Folder</value>
 				<value>org.hb0712.yang.opencms.pojo.Text</value>
 				<value>org.hb0712.yang.opencms.pojo.User</value>
+				<value>org.hb0712.yang.opencms.pojo.Template</value>
 			</list>
 		</property>
 	</bean>
@@ -63,7 +64,8 @@
 		</property>
 	</bean>
 
-
-
-
+	<util:properties id="velocityProperties" location="classpath:velocity.properties"/>
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties" ref="velocityProperties"/>
+	</bean>
 </beans>

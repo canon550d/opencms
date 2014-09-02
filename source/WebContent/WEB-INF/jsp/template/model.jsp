@@ -36,8 +36,8 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
 
   <table class="tblList">
     <tr>
-      <td>英文名：<input type="text" value=""/></td>
-      <td>中文名：<input type="text" value=""/></td>
+      <td>英文名：<input type="text" value="<c:out value='${template.name_english}'/> "/></td>
+      <td>中文名：<input type="text" value="<c:out value='${template.name_chinese}'/>"/></td>
       <td>评论：<input type="text" value=""/></td>
       <td>分页：<input type="text" value=""/></td>
     </tr>
@@ -81,7 +81,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
   <div class="tipList">
     <div class="master">
         <label>
-            <textarea id="body" name="body" style="font-family: fixedsys; font-size: 10.5pt; width: 94%; height: 500px;">loading...</textarea>
+            <textarea id="body" name="body" style="font-family: fixedsys; font-size: 10.5pt; width: 94%; height: 500px;"><c:out value="${template.content}"/></textarea>
             <textarea id="body_swap" name="body_swap" style="display: none">test</textarea>
         </label>
         <p style="margin:5px 0; color:#f00; text-align:right;">[提交专题前，请确认代码来自专题模板库，避免页面出错]</p>

@@ -30,7 +30,7 @@ public class CMS {
 		}
 	}
 
-	private static File CreateFile(String path) {
+	public static File CreateFile(String path) {
 		// TODO Auto-generated method stub
 		if (path == null){
 			return null;

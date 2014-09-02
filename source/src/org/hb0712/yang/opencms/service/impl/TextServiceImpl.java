@@ -1,8 +1,17 @@
 package org.hb0712.yang.opencms.service.impl;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
 import org.hb0712.yang.opencms.core.CMS;
 import org.hb0712.yang.opencms.core.IdFactory;
 import org.hb0712.yang.opencms.core.Path;
@@ -21,6 +30,9 @@ public class TextServiceImpl implements TextService{
 
 	@Autowired
 	private Path path;
+
+	@Autowired
+	private VelocityEngine velocityEngine;
 
 	public Text get(int id) {
 		// TODO Auto-generated method stub
@@ -51,7 +63,8 @@ public class TextServiceImpl implements TextService{
 		u.setId(1);
 		text.setUser(u);
 		// TODO 拿Seccion并获取User对象set到text里
-		CMS.save(path.getSavePath() + this.getUrl(text), text.getMessage());
+//		CMS.save(path.getSavePath() + this.getUrl(text), text.getMessage());
+		cmssave(path.getSavePath() + this.getUrl(text), text.getMessage());
 		return this.textDao.create(text.getId(), text);
 	}
 
@@ -65,5 +78,35 @@ public class TextServiceImpl implements TextService{
 		return false;
 	}
 
+	/*
+	 * 读取模板，并把内容生成html
+	 */
+	private boolean cmssave(String savePath, String message){
 
+		Template velocity_template = velocityEngine.getTemplate("pageList.vm","utf-8");
+		
+		
+		VelocityContext context = new VelocityContext();
+		context.put("main", message);
+		
+		BufferedWriter writer = null;
+		try {
+			FileOutputStream fos = new FileOutputStream(CMS.CreateFile(savePath));
+			writer = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
+
+			velocity_template.merge(context, writer);
+
+			writer.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

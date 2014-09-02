@@ -16,17 +16,19 @@
 			<td align="center" ><b><font color="#FFFFFF">栏目名称</font></b></td>
 			<td align="center" ><b><font color="#FFFFFF">html路径</font></b></td>
 		</tr>
+		<c:forEach items="${mlist}" var="lp">
 		<tr bgcolor="#E8E8D0"> 
 			<td width="50" height="30" align="center" bgcolor="#E8E8D0"> 
 				<input type="radio" name="modelbox" value="0075cp_wanfa" checked>
 			</td>
 			<td align="left">&nbsp;&nbsp;
-				<a href="/0075/special/sp/cp_wanfa.html" target=_blank><img src="/images/icon.jgif" width=16 height=16 border=0></a>&nbsp;
-				<a class="editModelForControl" href="model.do?topicid=0075&modelid=0075cp_wanfa" alt="0075cp_wanfa"><font color=blue>彩票玩法文章模板</a>
+				<a href="/0075/special/sp/cp_wanfa.html" target=_blank><img src="../../../static/images/icon.gif" width=16 height=16 border=0></a>&nbsp;
+				<a class="editModelForControl" href="model.do?topicid=0075&modelid=<c:out value='${lp.modelid}'/>" alt="0075cp_wanfa"><font color=blue><c:out value="${lp.name_chinese}" /></a>
 			</td>
 			<td>/0075/c/0075cp_wanfa.vm --> <a href="javascript:copyTag('/special/sp/cp_wanfa.html')">复制标签</a></td>
 		</tr>
-
+		</c:forEach>
 	</table>
+
 </body>
 </html>
