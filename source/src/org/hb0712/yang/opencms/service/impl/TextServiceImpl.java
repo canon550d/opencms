@@ -64,7 +64,7 @@ public class TextServiceImpl implements TextService{
 		text.setUser(u);
 		// TODO 拿Seccion并获取User对象set到text里
 //		CMS.save(path.getSavePath() + this.getUrl(text), text.getMessage());
-		cmssave(path.getSavePath() + this.getUrl(text), text.getMessage());
+		cmssave(path.getSavePath() + this.getUrl(text), text.getMessage(), text.getTemplate().getFileName());
 		return this.textDao.create(text.getId(), text);
 	}
 
@@ -81,9 +81,9 @@ public class TextServiceImpl implements TextService{
 	/*
 	 * 读取模板，并把内容生成html
 	 */
-	private boolean cmssave(String savePath, String message){
+	private boolean cmssave(String savePath, String message, String fileName){
 
-		Template velocity_template = velocityEngine.getTemplate("pageList.vm","utf-8");
+		Template velocity_template = velocityEngine.getTemplate(fileName, "utf-8");
 		
 		
 		VelocityContext context = new VelocityContext();

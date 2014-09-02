@@ -53,4 +53,7 @@ public class Template {
 		this.content = content;
 	}
 
+	public String getFileName(){
+		return modelid + ".vm";
+	}
 }

@@ -17,13 +17,13 @@ public class Path {
 	
 	private Properties velocityProperties;
 	
-	private Map opencms;
+	private Map<?, ?> opencms;
 
-	public Map getOpencms() {
+	public Map<?, ?> getOpencms() {
 		return opencms;
 	}
 
-	public void setOpencms(Map opencms) {
+	public void setOpencms(Map<?, ?> opencms) {
 		this.opencms = opencms;
 	}
 

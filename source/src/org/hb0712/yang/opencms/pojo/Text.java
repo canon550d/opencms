@@ -35,6 +35,7 @@ public class Text implements Serializable{
 //	private String modelid; 规则如下，栏目id + 英文名
 	private String docid;
 	private Content content = new Content();
+	private Template template;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -101,6 +102,15 @@ public class Text implements Serializable{
 	}
 	public void setContent(Content content) {
 		this.content = content;
+	}
+
+	@OneToOne
+	@JoinColumn(name="template_id")
+	public Template getTemplate() {
+		return template;
+	}
+	public void setTemplate(Template template) {
+		this.template = template;
 	}
 
 	//单向关联就可以了
