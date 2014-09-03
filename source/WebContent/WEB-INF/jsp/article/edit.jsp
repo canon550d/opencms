@@ -8,6 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>编辑</title>
 <link href="/static/css/edit20131119.css" rel="stylesheet" type="text/css" />
+<link href="/static/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/static/umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/umeditor/umeditor.min.js"></script>
+<script type="text/javascript" src="/static/umeditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
   <table width="100%" border="0" cellpadding="0" cellspacing="2">
@@ -47,17 +52,17 @@
   </table>
 
   <div class="no_float main_part">
+    <!-- 
     <div id="mainEditor">
       <div class="main" id="mainUploads">
-
         <div id="frameBorder_1" class="frameBorder">
-          <!-- 正文 -->
-          <textarea id=""  name="content.data"><c:out value='${text.content.data}'/></textarea>
-          <textarea id=""  name="message"><c:out value='${text.message}'/></textarea>
-          <!-- <iframe id="mainPreview" src="" frameborder="0" tabindex="5"></iframe>  -->
+          <!-- 正文 -- >
+          <iframe id="mainPreview" src="" frameborder="0" tabindex="5"></iframe>
+          <textarea id="mainCode" name="mainCode"></textarea>
           <input type="hidden" name="content2" id="content" />
         </div>
-        <textarea id="tempContent" style="display: none;"></textarea>
+        <textarea id="tempContent" style="display: none;"><c:out value='${text.content.data}'/></textarea>
+
         <table class="btnLayout" style="border-top: 1px solid #fff;">
           <tr>
             <td style="width: 16%; text-align: center;">
@@ -65,23 +70,28 @@
               <a href="###" class="btn" id="toContentCode" accesskey="c">代码</a>
             </td>
             <td style="width: 28%;"></td>
-            <!--<td style="width: 10%; text-align: center;"><a id="increaseHeight" href="###"><img src="/images/new_cms_img/editor_expand.png" alt="增加高度" /></a> <a id="decreaseHeight" href="###"><img src="/images/new_cms_img/editor_shrink.png" alt="减少高度" /></a></td>-->
+            <!--<td style="width: 10%; text-align: center;"><a id="increaseHeight" href="###"><img src="/images/new_cms_img/editor_expand.png" alt="增加高度" /></a> <a id="decreaseHeight" href="###"><img src="/images/new_cms_img/editor_shrink.png" alt="减少高度" /></a></td>-- >
             <td style="width: 46%; text-align: right;">
-              <!--<a href="###">保存草稿</a>　<a href="###">恢复草稿</a>　-->
-              <a href="###"
-              onclick="setDialog('viewlog.jsp?docid=4NO22F1J007529DN'); return false;">查看操作日志</a>&nbsp;<input
-              type="submit" class="btn" value="提交(Alt+s)" id="quickSubmit"
-              style="display: none;" />
+              <!--<a href="###">保存草稿</a>　<a href="###">恢复草稿</a>　-- >
+              <a href="###" onclick="setDialog('viewlog.jsp?docid=4NO22F1J007529DN'); return false;">查看操作日志</a>&nbsp;
+              <input type="submit" class="btn" value="提交(Alt+s)" id="quickSubmit" style="display: none;" />
             </td>
           </tr>
         </table>
       </div>
-    </div>
+    </div> -->
+
   </div>
-  <input type="hidden" name="directory_id" value="${directory.id}" />
-  <input type="hidden" name="id" value="${text.id}" />
+	<script type="text/plain" id="myEditor" style="width:100%;height:240px;">
+	<p>这里我可以写一些输入提示</p>
+	</script>
+
+	<input type="hidden" name="directory_id" value="${directory.id}" />
+	<input type="hidden" name="id" value="${text.id}" />
+	<textarea id=""  name="content.data"><c:out value='${text.content.data}'/></textarea>
+	<textarea id=""  name="message"><c:out value='${text.message}'/></textarea>
   <button type="submit">提交</button>
 </form>
-
+<script type="text/javascript" src="/static/js/edit.init.js"></script>
 </body>
 </html>
