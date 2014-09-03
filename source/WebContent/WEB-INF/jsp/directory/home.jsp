@@ -9,14 +9,14 @@
 <title>列表</title>
 </head>
 <body>
-  <div><a href="#"><c:out value="${directory.name}"/></a></div>
+  <div><a target="main" href="../main.jsp"><c:out value="${directory.name}"/></a></div>
   <div style="margin-left:15px;">
     <div><a href="#">专题</a></div>
     <div><a href="#">滚动</a></div>
-    <a>主频道</a>
+    <a target="main" href="list.do?id=<c:out value='${directory.id}'/>">主频道</a>
     <div style="margin-left:15px;">
     <c:forEach items="${directory.childs}" var="folder">
-    <div><a href="list.do?id=<c:out value="${folder.id}"/>" target="main"><c:out value="${folder.name}"/></a></div>
+    <div><a target="main" href="list.do?id=<c:out value="${folder.id}"/>" ><c:out value="${folder.name}"/></a></div>
     </c:forEach>
     </div>
   </div>

@@ -2,6 +2,8 @@ package org.hb0712.yang.opencms.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hb0712.yang.opencms.pojo.Directory;
 import org.hb0712.yang.opencms.pojo.Folder;
 import org.hb0712.yang.opencms.pojo.Home;
@@ -9,7 +11,6 @@ import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,9 +43,10 @@ public class DirectoryController {
 	 * 频道管理肯定需要一套维护的东西
 	 */
 	@RequestMapping("/directory/changeChannel")
-	public ModelAndView changeChannel(int id, ModelMap model){
+	public ModelAndView changeChannel(int id, HttpSession httpSession){
 		ModelAndView mv = new ModelAndView();
-		model.addAttribute("currChannel", id);
+		httpSession.setAttribute("currChannel", id);
+//		model.addAttribute("currChannel", id); TODO 使用spring mvc的model会在跳转后带上session的参数
 		mv = new ModelAndView(new RedirectView("../index.jsp"));
 		return mv;
 	}
@@ -104,6 +106,10 @@ public class DirectoryController {
 			directory = directoryService.read(id);
 		}
 		mv.addObject("directory", directory);
+		return mv;
+	}
+	public ModelAndView menu(String topicid){
+		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 

@@ -1,5 +1,7 @@
 package org.hb0712.yang.opencms.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.hb0712.yang.opencms.pojo.User;
 import org.hb0712.yang.opencms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,9 @@ public class UserController {
 	}
 
 	@RequestMapping("/user/logout")
-	public ModelAndView logout(User u){
-		return null;
+	public ModelAndView logout(HttpSession httpSession){
+		httpSession.removeAttribute("currUser");
+		ModelAndView mv = new ModelAndView(new RedirectView("../login.html"));
+		return mv;
 	}
 }

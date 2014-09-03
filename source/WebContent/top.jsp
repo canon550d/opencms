@@ -29,12 +29,12 @@ background: green;
   <div style="float:left;">苦逼内容发布系统</div>
   <div style="float:left;"><input type="text" /> <button>快速编辑</button> <a href="#">传图</a></div>
   <div style="float:right;padding-top:4px;">欢迎你：
-    <a href="#">${sessionScope.currUser.name}</a>
-    <a class="button1" href="#">后台首页</a>
-    <a class="button1" class="button1" href="#">用户管理</a>
+    <a class="noexist" target="main" href="#">${sessionScope.currUser.name}</a>
+    <a class="button1" target="main" href="main.jsp">后台首页</a>
+    <a class="button1" target="main" href="/user/displayAllUser.jsp">用户管理</a>
     <a class="button1" target="main" href="admin_index.jsp">后台管理</a>
     <a class="button1" target="main" href="directory/channel.do">更换频道</a>
-    <a class="button1 white" href="#">退出</a>
+    <a class="button1 white" target="_top" href="user/logout.do">退出</a>
   </div>
   <div style="clear:both;"></div>
 </body>

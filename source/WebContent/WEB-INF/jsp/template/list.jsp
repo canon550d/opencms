@@ -36,7 +36,7 @@
       <td height="30" align="right" bgcolor="#a9a9a9">
         <table width="100%" border="0" cellspacing="5" cellpadding="0">
           <tr>
-            <td style="text-align: left">&nbsp;&nbsp; <img src="/images/iconw.gif" width="16" height="16" border="0">
+            <td style="text-align: left">&nbsp;&nbsp; <img src="../../../images/iconw.gif" width="16" height="16" border="0">
               <font color="#FFFFFF"> 页面</font> &nbsp;&nbsp;<img src="/images/mulu.gif" width="16" height="16" border="0">
               <font color="#FFFFFF"> 栏目</font> &nbsp;&nbsp;<img src="/images/icond.gif" width="16" height="16" border="0">
               <font color="#FFFFFF"> 模板</font>
@@ -76,7 +76,7 @@
     <tr>
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="radio" name="topicidx"/></td>
       <td colspan="6" align="left" bgcolor="#E8E8D0">
-        <img src="/images/mulu.gif" width="16" height="16" border="0">&nbsp;
+        <img src="../../../static/images/mulu.gif" width="16" height="16" border="0">&nbsp;
         <a href="list.do?id=<c:out value="${folder.id}"/>"><c:out value="${folder.name}"/></a>
       </td>
     </tr>
@@ -87,9 +87,9 @@
       <td width="30" height="30" align="center" bgcolor="#E8E8D0"><input type="checkbox" name="postbox"/></td>
       <td align="center" bgcolor="#E8E8D0">1</td>
       <td align="left"   bgcolor="#E8E8D0">
-        <a href="http://help.163.com/special/007529DN/dxb_20100719.html" target=_blank><img src="/images/icon.gif" width=16 height=16 border=0></a>
+        <a href="http://help.163.com/special/007529DN/dxb_20100719.html" target=_blank><img src="../../../static/images/icon.gif" width=16 height=16 border=0></a>
         
-        <a class="" href="model.do?id=<c:out value="${file.id}"/>" alt="根id+英文名"><c:out value="${file.subject}"/></a>
+        <a class="" href="model.do?id=<c:out value="${file.id}"/>" title="根id+英文名"><c:out value="${file.subject}"/></a>
       </td>
       <td align="center" bgcolor="#E8E8D0"><c:out value="${file.user.name}"/></td>
       <td align="center" bgcolor="#E8E8D0">原创</td>
@@ -129,7 +129,7 @@
   </table>
 
   <div style="position:relative;background-color:#E0E7FF;height:30px;">
-    <span>来源</span><input id="searchsource" name="source" value="" placeholder="多个来源请用,隔开" style="width:120px;color:#6D6D6D;" autocomplete="off" type="text">
+    <span>来源</span><input id="searchsource" name="source" value=""  style="width:120px;color:#6D6D6D;" type="text">
     <span>用户</span><input name="userid" value="" style="width:75px" type="text">
     <span>时间</span><input id="dp1384840434859" name="startday" class="date-picker hasDatepicker" value="2013-09-19" style="width:80px" type="text">—<input id="dp1384840434860" name="endday" class="date-picker hasDatepicker" value="" style="width:80px" type="text">
     <span>权重</span><input name="lspri" value="0-255" style="width:40px" type="text">
