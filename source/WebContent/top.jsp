@@ -33,7 +33,7 @@ background: green;
     <a class="button1" href="#">后台首页</a>
     <a class="button1" class="button1" href="#">用户管理</a>
     <a class="button1" target="main" href="admin_index.jsp">后台管理</a>
-    <a class="button1" href="#">更换频道</a>
+    <a class="button1" target="main" href="directory/channel.do">更换频道</a>
     <a class="button1 white" href="#">退出</a>
   </div>
   <div style="clear:both;"></div>

@@ -12,14 +12,14 @@
     <tr>
       <td id="frmTitle" valign="center"  align="center">
         <!-- /menu.jsp/ -->
-        <iframe id="left" scrolling="no" frameborder="0" src="directory/home.do?id=1" name="left" style="Z-INDEX: 2; WIDTH: 205; HEIGHT: 100%;"></iframe>
+        <iframe id="left" scrolling="no" frameborder="0" src="directory/home.do?id=${sessionScope.currChannel}" name="left" style="Z-INDEX: 2; WIDTH: 205; HEIGHT: 100%;"></iframe>
       </td>
       <td id="resizeBox" style="cursor:e-resize;">
         <div id="clickbox"></div>
       </td>
       <td style="WIDTH: 100%">
         <!-- /main.jsp/ -->
-        <iframe id="main" scrolling="yes" frameborder="0" src="directory/list.do?id=1" name="main" style="Z-INDEX: 1; VISIBILITY: inherit; WIDTH: 100%; HEIGHT: 100%;"></iframe>
+        <iframe id="main" scrolling="yes" frameborder="0" src="directory/list.do?id=${sessionScope.currChannel}" name="main" style="Z-INDEX: 1; VISIBILITY: inherit; WIDTH: 100%; HEIGHT: 100%;"></iframe>
       </td>
     </tr>
   </table>

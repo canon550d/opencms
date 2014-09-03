@@ -22,7 +22,8 @@ public class UserController {
 		ModelAndView mav = null;
 		if(x != null){
 			model.addAttribute("currUser", x);
-			mav = new ModelAndView(new RedirectView("../index.jsp"));
+//			mav = new ModelAndView(new RedirectView("../frame.jsp"));
+			mav = new ModelAndView(new RedirectView("../directory/channel.do"));
 		}
 //		return new ModelAndView(new RedirectView("/directory/home.do"));
 		return mav;

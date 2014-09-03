@@ -9,11 +9,15 @@ import org.hb0712.yang.opencms.pojo.Text;
 import org.hb0712.yang.opencms.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
+@SessionAttributes("currChannel")
 public class DirectoryController {
 	@Autowired
 	private DirectoryService directoryService;
@@ -31,6 +35,17 @@ public class DirectoryController {
 		ModelAndView mv = new ModelAndView();
 		List<Directory> folders = directoryService.read(new Home());
 		mv.addObject("folders", folders);
+		return mv;
+	}
+	
+	/*
+	 * 频道管理肯定需要一套维护的东西
+	 */
+	@RequestMapping("/directory/changeChannel")
+	public ModelAndView changeChannel(int id, ModelMap model){
+		ModelAndView mv = new ModelAndView();
+		model.addAttribute("currChannel", id);
+		mv = new ModelAndView(new RedirectView("../index.jsp"));
 		return mv;
 	}
 
@@ -62,6 +77,9 @@ public class DirectoryController {
 		return mv;
 	}
 
+	/*
+	 * TODO 这个方法为何要放在这里？
+	 */
 	@RequestMapping("/template/list")
 	public ModelAndView special(Integer id){
 		ModelAndView mv = new ModelAndView();
