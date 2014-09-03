@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Template {
@@ -53,6 +54,7 @@ public class Template {
 		this.content = content;
 	}
 
+	@Transient
 	public String getFileName(){
 		return modelid + ".vm";
 	}
