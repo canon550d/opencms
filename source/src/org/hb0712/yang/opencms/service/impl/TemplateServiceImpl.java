@@ -18,8 +18,8 @@ public class TemplateServiceImpl implements TemplateService {
 	@Autowired
 	private Path path;
 
-	public List<Template> mlist() {
-		return templateDao.list();
+	public List<Template> mlist(String topicid) {
+		return templateDao.list(topicid);
 	}
 
 	public Template read(String topicid, String modelid) {

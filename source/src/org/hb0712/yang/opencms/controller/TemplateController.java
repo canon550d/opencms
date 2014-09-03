@@ -21,8 +21,8 @@ public class TemplateController {
 	}
 
 	@RequestMapping("/template/mlist")
-	public ModelAndView mlist(){
-		List<Template> mlist = templateService.mlist();
+	public ModelAndView mlist(String topicid){
+		List<Template> mlist = templateService.mlist(topicid);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("mlist", mlist);
 		return mv;

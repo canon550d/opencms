@@ -17,9 +17,9 @@ public class TemplateDaoImpl extends HibernateDaoSupport implements TemplateDao 
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Template> list() {
-		String hql = "from Template";
-		return this.getHibernateTemplate().find(hql);
+	public List<Template> list(String topicid) {
+		String hql = "from Template t where t.topicid = ?";
+		return this.getHibernateTemplate().find(hql, topicid);
 	}
 
 	public Template read(String topicid, String modelid){

@@ -9,8 +9,8 @@ import javax.persistence.Transient;
 @Entity
 public class Template {
 	private int id;
-	private String modelid;
-	private String name_english;
+	private String modelid;	//Ó¢ÎÄÃû
+	private String topicid;
 	private String name_chinese;
 	private String subject;
 	private String content;
@@ -29,12 +29,6 @@ public class Template {
 	public void setModelid(String modelid) {
 		this.modelid = modelid;
 	}
-	public String getName_english() {
-		return name_english;
-	}
-	public void setName_english(String name_english) {
-		this.name_english = name_english;
-	}
 	public String getName_chinese() {
 		return name_chinese;
 	}
@@ -52,6 +46,12 @@ public class Template {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getTopicid() {
+		return topicid;
+	}
+	public void setTopicid(String topicid) {
+		this.topicid = topicid;
 	}
 
 	@Transient
