@@ -36,7 +36,7 @@ public class TextDaoTest {
 		text.setUser(u);
 		text.setWeight(60);
 		text.setRemoved(1);
-		textDao.create(text);
+//		textDao.create(text);
 	}
 
 }
