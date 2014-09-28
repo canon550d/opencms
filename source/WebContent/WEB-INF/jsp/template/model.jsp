@@ -36,7 +36,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
 <form action="update.do" method="post">
   <table class="tblList">
     <tr>
-      <td>英文名：<input type="text" value="<c:out value='${template.name_english}'/> "/></td>
+      <td>英文名：<input type="text" value="<c:out value='${template.modelid}'/> "/></td>
       <td>中文名：<input type="text" value="<c:out value='${template.name_chinese}'/>"/></td>
       <td>评论：<input type="text" value=""/></td>
       <td>分页：<input type="text" value=""/></td>
