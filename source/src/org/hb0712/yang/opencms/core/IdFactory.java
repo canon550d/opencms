@@ -39,7 +39,10 @@ public class IdFactory {
 	 * 产生N位的随机数
 	 */
 	public static String getTopicid(){
-		return create(8);
+		return create(4);
+	}
+	public static String getTopicid(String homeid){
+		return homeid + create(4);
 	}
 
 	public static String getDocid(String suffix){

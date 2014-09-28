@@ -62,11 +62,35 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return tt;
 	}
 
+	private Home getHome(Directory p){
+		Home h = null;
+		if(p instanceof Folder){
+			Folder p2 = (Folder)p;
+			h = getHome(p2.getParent());
+		}else{
+			h = (Home) p;
+		}
+		return h;
+	}
+
 	public boolean create(Folder folder) {
 		boolean result = true;
+		Directory p = this.directoryDao.read(folder.getId());
+		folder.setParent(p);
+		
+		Home h = this.getHome(p);
 		// 由系统生成一个topic id
-		folder.setTopicid(IdFactory.getTopicid());
+		folder.setTopicid(IdFactory.getTopicid(h.getTopicid()));
+		folder.setId(null);
 		this.directoryDao.create(folder);
+		return result;
+	}
+
+	public boolean create(Home h) {
+		boolean result = true;
+		if(h.getTopicid() == null){
+			h.setTopicid(IdFactory.getTopicid());
+		}
 		return result;
 	}
 

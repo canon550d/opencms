@@ -117,8 +117,7 @@ public class DirectoryController {
 	public ModelAndView create(Folder folder){
 		if(folder.getName() != null ){
 			Folder newfolder = new Folder();
-			Directory parent = this.directoryService.read(folder.getId());
-			newfolder.setParent(parent);
+			newfolder.setId(folder.getId());
 			newfolder.setName(folder.getName());
 
 			this.directoryService.create(newfolder);
@@ -132,4 +131,14 @@ public class DirectoryController {
 		return mv;
 	}
 
+	@RequestMapping("/directory/createHome")
+	public ModelAndView create(Home home){
+		if(home.getName() != null){
+			Home directory = new Home();
+			directory.setName(home.getName());
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
 }
