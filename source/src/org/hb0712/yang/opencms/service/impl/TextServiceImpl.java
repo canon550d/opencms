@@ -59,10 +59,18 @@ public class TextServiceImpl implements TextService{
 		text.setRemoved(0);//0是存在工单
 		//需要对doc id做处理
 		text.setDocid(IdFactory.getDocid(text.getDocid()));
+
+		// TODO 拿Seccion并获取User对象set到text里
 		User u = new User();
 		u.setId(1);
 		text.setUser(u);
-		// TODO 拿Seccion并获取User对象set到text里
+		
+		// TODO
+		org.hb0712.yang.opencms.pojo.Template template = new org.hb0712.yang.opencms.pojo.Template();
+		template.setModelid("0075woojj");
+		template.setId(1);
+		text.setTemplate(template);
+		
 //		CMS.save(path.getSavePath() + this.getUrl(text), text.getMessage());
 		cmssave(path.getSavePath() + this.getUrl(text), text.getMessage(), text.getTemplate().getFileName());
 		return this.textDao.create(text.getId(), text);
@@ -72,8 +80,9 @@ public class TextServiceImpl implements TextService{
 	 * 将内容写入文件
 	 */
 	public boolean update(Text text) {
-		String realpath = path.getSavePath();
-		CMS.save(realpath + this.getUrl(text), text.getContent().getData());
+//		String realpath = path.getSavePath();
+//		CMS.save(realpath + this.getUrl(text), text.getContent().getData());
+		cmssave(path.getSavePath() + this.getUrl(text), text.getMessage(), text.getTemplate().getFileName());
 		this.textDao.update(text);
 		return false;
 	}
